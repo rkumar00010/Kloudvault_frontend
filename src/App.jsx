@@ -6,15 +6,17 @@ import { useState, useEffect } from 'react';
 import Blog from './Blog.tsx'
 import Company from './Company.tsx'
 import Support from './Support.tsx'
-
-
-
+ 
 
 export default function App() {
 
-
   const [rotation, setRotation] = useState(15);
   const [currentPage, setCurrentPage] = useState('home');
+
+  const goTo = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,17 +151,29 @@ export default function App() {
 
       {currentPage === 'home' ? (
         <>
-          <main className="hero">
+         <main className="hero">
             <div className="hero-inner">
-              <h1 className="hero-title">Revolutionize the Way You Manage Money</h1>
-              <p className="hero-sub">Secure. Smart. Seamless. Manage, invest, and grow your money with confidence.</p>
+              <div className="kv-badge">Enterprise Data Lifecycle Platform</div>
+              <div className="hero-subtitle">Your Data's Final <span className="accent">Vault</span></div>
+              <p className="hero-desc">
+                Secure, searchable, and always compliant. Kloudvault unifies archival, backup, reporting, scanning, OCR, and CTI into one cloud-native platform.
+              </p>
+              <div className="hero-circle hero-circle-glow">
+              </div>
+              <div className="hero-circle1 hero-circle-glow">
+              </div>
+              <div className="hero-ctas">
+                <button className="cta primary" onClick={() => goTo('support')}>Book a Demo →</button>
+                <button className="cta secondary" onClick={() => goTo('products')}>Explore Solutions</button>
+              </div>
 
-              {/* <div className="hero-ctas">
-            <button className="cta primary">Watch Demo</button>
-            <button className="cta ghost">Learn More</button>
-          </div> */}
+              <div className="scroll-indicator">
+                <div className="si-dot"></div>
+              </div>
             </div>
           </main>
+
+ 
 
           {/* <div className="stat-icon">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -168,42 +182,28 @@ export default function App() {
       </div> */}
 
           <section className="ai-section">
-            <div className="ai-ctas">
+            {/* <div className="ai-ctas">
               <button className="cta green">Get Started</button>
               <button className="cta outline">Book A Demo</button>
+            </div> */}
+
+            <div className="ai-container">
+              <div className="left-section">
+                <div className="box">Instant Insights</div>
+                <div className="box">Smart Visuals</div>
+                <div className="box">Ask Anything</div>
+              </div>
+
+              <div className="center-ai">
+                <div className="ai-box">AI</div>
+              </div>
+
+              <div className="right-section">
+                <div className="box">Predictive Power</div>
+                <div className="box">Plug &amp; Play</div>
+                <div className="box">Always On</div>
+              </div>
             </div>
-
-            <div class="ai-container">
-              <div class="left-section">
-                <div class="box">Instant Insights</div>
-                <div class="box">Smart Visuals</div>
-                <div class="box">Ask Anything</div>
-              </div>
-
-              <div class="center-ai">
-                <div class="ai-box">AI</div>
-              </div>
-
-              <div class="right-section">
-                <div class="box">Predictive Power</div>
-                <div class="box">Plug & Play</div>
-                <div class="box">Always On</div>
-              </div>
-
-
-              <svg class="lines" viewBox="0 0 1000 300" preserveAspectRatio="none">
-
-                <path d="M150 50 C 300 50 450 80 500 120" />
-                <path d="M150 150 C 300 150 450 150 500 150" />
-                <path d="M150 250 C 300 250 450 220 500 180" />
-
-
-                <path d="M850 50 C 700 50 550 80 500 120" />
-                <path d="M850 150 C 700 150 550 150 500 150" />
-                <path d="M850 250 C 700 250 550 220 500 180" />
-              </svg>
-            </div>
-
           </section>
 
           {/* <section className="dashboard-section">
@@ -627,6 +627,10 @@ export default function App() {
             </div>
           </section>
 
+         
+
+            
+
           {/* Footer Section */}
           <footer className="site-footer">
             <div className="footer-inner">
@@ -838,6 +842,8 @@ export default function App() {
               </button>
             </div>
           </section>
+
+
 
           {/* Footer Section */}
           <footer className="site-footer">
