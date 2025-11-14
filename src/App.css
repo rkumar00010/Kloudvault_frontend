@@ -3,7 +3,7 @@
 .app {
   min-height: 100vh;
   color: rgba(255,255,255,0.92);
-  background-color: #0b0d17; /* deep navy */
+  background-color:#0a0f1e; /* deep navy */
 
   /* ✅ Subtle grid background */
   background-image:
@@ -79,7 +79,7 @@
 	/* box-sizing: border-box; */
 	background: linear-gradient(
     to bottom,
-    rgba(139, 92, 246, 0.08),
+    #040813,
     transparent
   );
 }
@@ -89,39 +89,45 @@
   top:-50%;
   left:20%;
   transform:translateX(-50%);
-  width:600px;
-  height:600px;
-  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(139,92,246,0.02) 60%, rgba(139,92,246,0) 80%);
+  width:400px;
+  height:400px;
+  background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.1) 60%, rgba(139,92,246,0.05) 80%);
   pointer-events:none;
   z-index:1;
   filter: blur(80px);
   border: 2px solid  rgba(139,92,246,0.12);
   border-radius: 50%;
+  /* animation: pulseScale 3s ease-in-out infinite; */
+  animation: pulseScale 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
 .hero-circle1{
   position:absolute;
-  top:-30%;
+  top:-20%;
   left:70%;
   transform:translateX(-50%);
-  width:600px;
-  height:600px;
-  background: radial-gradient(circle, rgba(246, 184, 92, 0.12) 0%, rgba(246, 210, 92, 0.02) 60%, rgba(246, 202, 92, 0) 80%);
+  width:400px;
+  height:400px;
+  background: radial-gradient(circle, rgba(246, 184, 92, 0.2) 0%, rgba(246, 210, 92, 0.1) 60%, rgba(246, 202, 92, 0.05) 80%);
   pointer-events:none;
   z-index:1;
   filter: blur(80px);
   border: 2px solid  rgba(139,92,246,0.12);
   border-radius: 50%;
-}
-
-.hero-circle-glow:focus{
-  animation: pulse 3s infinite;
-  transition: box-shadow 0.3s ease-in-out;
-  transform: translateX(-50%) scale(1.05);
-  transform: translateY(-50%) scale(1.05);
+  animation: pulseScale 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* bounce-like */
+   animation-delay: 1.5s;
 }
 
 
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.15);
+  }
+}
 .badge {
 	display:inline-block;
 	padding:10px 22px;
@@ -520,6 +526,7 @@ html, body, #root {
     justify-content: center;
     /* padding: 70px 20px 0px; */
     position: relative;
+    background-color: #0a0f1e;
 }
 
 /* Hero light + beam accents (center glow + soft streaks) */
