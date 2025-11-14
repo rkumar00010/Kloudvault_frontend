@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import './archival.css'
 
-export default function Archival(){
+export default function ReportsAnalytics(){
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
-  const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
+  const [billing, setBilling] = useState('monthly')
+
   return (
     <div className="archival-page">
-      {/* <div className="blog-hero"></div> */}
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
+            {/* Bar chart icon */}
+            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#ffffff" opacity="0.9"/><rect x="16" y="16" width="4" height="14" rx="2" fill="#ffffff" opacity="0.9"/><rect x="24" y="10" width="4" height="20" rx="2" fill="#ffffff" opacity="0.9"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Archival Data</div>
-            <h1 className="archival-title">Policy‑driven cold storage with warm retrieval and legal holds.</h1>
+            <div className="archival-kicker">Reports & Analytics</div>
+            <h1 className="archival-title">Unified insights across your entire data estate.</h1>
           </div>
         </div>
       </section>
@@ -32,29 +33,28 @@ export default function Archival(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Reduce storage costs by up to 80% while maintaining instant access to historical data.</div>
-              <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div>
+              <div className="ov-line">Turn data into decisions with comprehensive reporting and analytics. Pre-built dashboards, custom reports, and real-time insights across all Kloudvault modules.</div>
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Organizations spend millions on primary storage for data that's rarely accessed. Manual archival processes are slow, error‑prone, and fail to meet compliance requirements.</p>
+                <p className="ov-text">Data is scattered across multiple systems, making it impossible to get a complete picture. Manual reporting is time-consuming and error-prone.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Kloudvault automates archival with intelligent policies that move data to cost‑effective cold storage while maintaining instant retrieval. Legal holds are managed automatically with complete audit trails.</p>
+                <p className="ov-text">Our unified analytics platform aggregates data across archival, backup, scanning, OCR, and CTI systems. Build custom dashboards, automate reporting, and export insights in any format.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated tiering based on access patterns</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Legal hold management with audit trails</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Instant warm retrieval in under 60 seconds</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Policy‑based retention and deletion</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Compliance reporting for SOC 2, ISO 27001</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross‑region replication for disaster recovery</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Pre-built dashboards for compliance, storage, and usage</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Scheduled reports with automated distribution</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Export to PDF, Excel, CSV, and APIs</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Custom report builder with drag-and-drop interface</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Real-time analytics and alerting</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Role-based access controls for sensitive data</span></div>
               </div>
             </div>
 
@@ -62,9 +62,9 @@ export default function Archival(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'How fast can I retrieve archived data?', a: 'Most retrievals complete in under 60 seconds thanks to our warm retrieval tier. Bulk restore jobs scale horizontally.' },
-                  { q: 'Is archived data encrypted?', a: 'Yes. Data is encrypted in transit (TLS 1.2+) and at rest using AES‑256 with optional customer‑managed keys.' },
-                  { q: 'Can I customize retention policies?', a: 'Policies can be defined per dataset, tag, or tenant. Support for legal holds, time‑based and event‑based retention.' }
+                  { q: 'Can I create custom reports?', a: 'Yes. Our report builder lets you create custom reports using any data field, with filtering, grouping, and visualization options.' },
+                  { q: 'How do I share reports?', a: 'Schedule automated distribution via email, export to common formats, or share via secure links with expiration dates.' },
+                  { q: 'What compliance reports are available?', a: 'Pre-built reports for SOC 2, ISO 27001, GDPR, HIPAA, and more. Customize to meet your specific audit requirements.' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -80,6 +80,7 @@ export default function Archival(){
             </div>
           </div>
         )}
+
         {tab==='pricing' && (
           <div className="pricing-wrap">
             <div className="pricing-eyebrow">Simple, Transparent Pricing</div>
@@ -93,55 +94,46 @@ export default function Archival(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?299:239}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">1TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:79}</span><span className="per">/month</span></div>
+                {/* <div className="plan-included">1 Dashboard</div> */}
                 <ul className="plan-list">
-                  <li>Basic archival policies</li>
-                  <li>30‑day retention</li>
-                  <li>Email support</li>
+                  <li>Basic dashboards</li>
+                  <li>10 custom reports</li>
+                  <li>Email supportt</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
               </div>
-
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?999:799}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">10TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?699:239}</span><span className="per">/month</span></div>
+                {/* <div className="plan-included">10 Dashboards</div> */}
                 <ul className="plan-list">
-                  <li>Advanced policies</li>
-                  <li>Legal hold</li>
-                  <li>Priority support</li>
+                  <li>Unlimited custom reports</li>
+                  <li>Scheduled reporting</li>
                   <li>API access</li>
+                  <li>Priority support</li>
+
                 </ul>
                 <button className="plan-cta gradient">Get Started</button>
               </div>
-
               <div className="plan">
                 <div className="plan-name">Enterprise</div>
-                <div className="plan-price">
-                  <span className="custom">Custom</span>
-                </div>
-                <div className="plan-included">Unlimited included</div>
+                <div className="plan-price"><span className="custom">Custom</span></div>
+                {/* <div className="plan-included">Unlimited</div> */}
                 <ul className="plan-list">
                   <li>Everything in Growth</li>
-                  <li>Custom SLAs</li>
+                  <li>White-label reports</li>
                   <li>Dedicated support</li>
-                  <li>White‑glove migration</li>
+                  <li>Custom integrations</li>
+
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
               </div>
             </div>
           </div>
         )}
+
         {tab==='about' && (
           <div className="about-wrap">
             <div className="about-eyebrow">About Kloudvault</div>
@@ -175,7 +167,7 @@ export default function Archival(){
             <div className="about-cta">
               <div className="cta-left">
                 <div className="cta-title">Ready to learn more?</div>
-                <div className="cta-sub">Schedule a personalized demo with our team to see how Archival Data can transform your data operations.</div>
+                <div className="cta-sub">Schedule a personalized demo with our team to see how Reports & Analytics can transform your data operations.</div>
               </div>
               <div className="cta-right">
                 <button className="cta primary">Book a Demo</button>
@@ -184,7 +176,7 @@ export default function Archival(){
           </div>
         )}
       </section>
-        {/* Footer Section */}
+       {/* Footer Section */}
           <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-brand">

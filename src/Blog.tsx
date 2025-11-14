@@ -2,7 +2,10 @@ import React from 'react';
 
 export default function Blog() {
   return (
+  <>
+  
     <div className="blog-page">
+      
       <div className="blog-hero"></div>
       <section className="products-hero">
         <div className="products-hero-content">
@@ -247,5 +250,6 @@ export default function Blog() {
         </div>
       </footer>
     </div>
+  </>
   );
 }

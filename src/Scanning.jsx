@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import './archival.css'
 
-export default function Archival(){
+export default function Scanning(){
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
-  const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
+  const [billing, setBilling] = useState('monthly')
+
   return (
     <div className="archival-page">
-      {/* <div className="blog-hero"></div> */}
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
+            {/* Scanning/crop icon */}
+            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="22" height="22" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="14" y="14" width="10" height="10" rx="2" stroke="#ffffff" strokeWidth="1.4" opacity="0.9"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Archival Data</div>
-            <h1 className="archival-title">Policy‑driven cold storage with warm retrieval and legal holds.</h1>
+            <div className="archival-kicker">Scanning</div>
+            <h1 className="archival-title">High‑volume document capture at enterprise scale.</h1>
           </div>
         </div>
       </section>
@@ -32,29 +33,28 @@ export default function Archival(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Reduce storage costs by up to 80% while maintaining instant access to historical data.</div>
-              <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div>
+              <div className="ov-line">Digitize physical documents with intelligent scanning workflows. Queue management, batch processing, and automatic quality control ensure efficient, accurate document capture.</div>
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Organizations spend millions on primary storage for data that's rarely accessed. Manual archival processes are slow, error‑prone, and fail to meet compliance requirements.</p>
+                <p className="ov-text">Manual document processing is slow, error-prone, and expensive. Physical documents create compliance risks and storage challenges.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Kloudvault automates archival with intelligent policies that move data to cost‑effective cold storage while maintaining instant retrieval. Legal holds are managed automatically with complete audit trails.</p>
+                <p className="ov-text">Our scanning platform handles millions of pages per day with automated quality checks, intelligent routing, and seamless integration with OCR and archival systems.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated tiering based on access patterns</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Legal hold management with audit trails</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Instant warm retrieval in under 60 seconds</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Policy‑based retention and deletion</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Compliance reporting for SOC 2, ISO 27001</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross‑region replication for disaster recovery</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Batch processing for high-volume scanning</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Queue management with priority routing</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Barcode and QR code detection</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated quality control and validation</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Multi-format output (PDF, TIFF, JPEG)</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Integration with OCR for immediate indexing</span></div>
               </div>
             </div>
 
@@ -62,9 +62,9 @@ export default function Archival(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'How fast can I retrieve archived data?', a: 'Most retrievals complete in under 60 seconds thanks to our warm retrieval tier. Bulk restore jobs scale horizontally.' },
-                  { q: 'Is archived data encrypted?', a: 'Yes. Data is encrypted in transit (TLS 1.2+) and at rest using AES‑256 with optional customer‑managed keys.' },
-                  { q: 'Can I customize retention policies?', a: 'Policies can be defined per dataset, tag, or tenant. Support for legal holds, time‑based and event‑based retention.' }
+                  { q: 'What scanners hardware do you support?', a: 'We support all major scanner brands including Fujitsu, Kodak, Canon, and Epson. Our TWAIN driver works with any TWAIN-compliant scanner.' },
+                  { q: 'How does quality control work?', a: 'Automated checks for blank pages, skew, resolution, and contrast. Failed scans are flagged for manual review with suggested corrections.' },
+                  { q: 'Can I scan directly to archive?', a: 'Yes. Scanned documents can be routed directly to archival storage with OCR indexing and metadata tagging.' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -80,6 +80,7 @@ export default function Archival(){
             </div>
           </div>
         )}
+
         {tab==='pricing' && (
           <div className="pricing-wrap">
             <div className="pricing-eyebrow">Simple, Transparent Pricing</div>
@@ -93,55 +94,43 @@ export default function Archival(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?299:239}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">1TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?149:39}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Basic archival policies</li>
-                  <li>30‑day retention</li>
+                  <li>1,000 pages/month</li>
+                  <li>Basic quality control</li>
                   <li>Email support</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
               </div>
-
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?999:799}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">10TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:159}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Advanced policies</li>
-                  <li>Legal hold</li>
+                  <li>50,000 pages/month</li>
+                  <li>Advanced quality control</li>
+                  <li>OCR integration</li>
                   <li>Priority support</li>
-                  <li>API access</li>
+
                 </ul>
                 <button className="plan-cta gradient">Get Started</button>
               </div>
-
               <div className="plan">
                 <div className="plan-name">Enterprise</div>
-                <div className="plan-price">
-                  <span className="custom">Custom</span>
-                </div>
-                <div className="plan-included">Unlimited included</div>
+                <div className="plan-price"><span className="custom">Custom</span></div>
                 <ul className="plan-list">
-                  <li>Everything in Growth</li>
-                  <li>Custom SLAs</li>
+                  <li>Unlimited pages</li>
+                  <li>Custom workflows</li>
                   <li>Dedicated support</li>
-                  <li>White‑glove migration</li>
+                  <li>On-premise deployment</li>
+
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
               </div>
             </div>
           </div>
         )}
+
         {tab==='about' && (
           <div className="about-wrap">
             <div className="about-eyebrow">About Kloudvault</div>
@@ -175,7 +164,7 @@ export default function Archival(){
             <div className="about-cta">
               <div className="cta-left">
                 <div className="cta-title">Ready to learn more?</div>
-                <div className="cta-sub">Schedule a personalized demo with our team to see how Archival Data can transform your data operations.</div>
+                <div className="cta-sub">Schedule a personalized demo with our team to see how Scanning can transform your data operations.</div>
               </div>
               <div className="cta-right">
                 <button className="cta primary">Book a Demo</button>
@@ -184,7 +173,7 @@ export default function Archival(){
           </div>
         )}
       </section>
-        {/* Footer Section */}
+       {/* Footer Section */}
           <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-brand">
