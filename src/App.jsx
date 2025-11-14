@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react';
 import Blog from './Blog.tsx'
 import Company from './Company.tsx'
 import Support from './Support.tsx'
-import AnalyticsDashboard from './components/AnalyticsDashboard.jsx'
-
+import AnalyticsDashboard from './components/AnalyticsDashboard.jsx';
+import AISection from  './components/AISection.jsx'
 
 export default function App() {
 
@@ -183,29 +183,8 @@ export default function App() {
       </div> */}
 
           <section className="ai-section">
-            {/* <div className="ai-ctas">
-              <button className="cta green">Get Started</button>
-              <button className="cta outline">Book A Demo</button>
-            </div> */}
-
-            <div className="ai-container">
-              <div className="left-section">
-                <div className="box">Instant Insights</div>
-                <div className="box">Smart Visuals</div>
-                <div className="box">Ask Anything</div>
-              </div>
-
-              <div className="center-ai">
-                <div className="ai-box">AI</div>
-              </div>
-
-              <div className="right-section">
-                <div className="box">Predictive Power</div>
-                <div className="box">Plug &amp; Play</div>
-                <div className="box">Always On</div>
-              </div>
-            </div>
-          </section>
+  <AISection />
+</section>
 
           {/* <section className="dashboard-section">
         <img 
