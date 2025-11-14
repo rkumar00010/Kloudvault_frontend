@@ -595,7 +595,7 @@ html, body, #root {
 }
 
 /* AI features section */
-.ai-section{ padding:10px 20px 40px; width:100%;  font-family: 'Inter', sans-serif; }
+.ai-section{  width:100%;  font-family: 'Inter', sans-serif; }
 .ai-ctas{ display:flex; gap:20px; justify-content:center; margin-left: 9px;}
 .cta.green{ background:#8b5cf6; color:white; font-family: 'Inter', sans-serif; }
 .cta.outline{ background:white;  color:#d5b03a; font-family: 'Inter', sans-serif; }
@@ -605,7 +605,7 @@ html, body, #root {
   position: relative;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 30px 16px 10px;
+  padding: 25px 16px 10px;
   background: url('/AI.png') center top/contain no-repeat;
 }
 .ai-container::before{
@@ -2184,3 +2184,4 @@ html, body, #root {
   50%{ transform: translateY(28px); opacity: 0.55 }
   100%{ transform: translateY(0); opacity: 0.9 }
 }
+
