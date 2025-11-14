@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import Blog from './Blog.tsx'
 import Company from './Company.tsx'
 import Support from './Support.tsx'
- 
+import AnalyticsDashboard from './components/AnalyticsDashboard.jsx'
+
 
 export default function App() {
 
@@ -151,7 +152,7 @@ export default function App() {
 
       {currentPage === 'home' ? (
         <>
-         <main className="hero">
+          <main className="hero">
             <div className="hero-inner">
               <div className="kv-badge">Enterprise Data Lifecycle Platform</div>
               <div className="hero-subtitle">Your Data's Final <span className="accent">Vault</span></div>
@@ -173,7 +174,7 @@ export default function App() {
             </div>
           </main>
 
- 
+
 
           {/* <div className="stat-icon">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -226,7 +227,7 @@ export default function App() {
             />
           </section>
 
- 
+
 
 
           <section className="testimonials-section">
@@ -265,7 +266,7 @@ export default function App() {
                     </div>
                     <div className="testimonial-info">
                       <h3>Dianne Russell</h3>
-                      <p>tanya.hill@example.com</p> 
+                      <p>tanya.hill@example.com</p>
                     </div>
                   </div>
                   <p className="testimonial-text">
@@ -627,68 +628,89 @@ export default function App() {
             </div>
           </section>
 
-    {/* Our Values Section (before footer) */}
-      <section className="blog-values">
-        <div className="values-header">
-          <div className="values-kicker">Why Enterprise Leaders Choose Kloudvault</div>
-          <h3 className="values-title">Built for scale, security, and compliance</h3>
-        </div>
-        <div className="values-grid">
-          <div className="value-card">
-            <div className="value-icon">
-              {/* Shield icon */}
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-            </div>
-            <div className="value-title">Enterprise Security</div>
-            <p className="value-desc">SOC 2, ISO 27001, GDPR-ready compliance built from day one.</p>
-          </div>
 
-          <div className="value-card">
-            <div className="value-icon">
-              {/* Bolt icon */}
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z" />
-              </svg>
-            </div>
-            <div className="value-title">Lightning Fast</div>
-            <p className="value-desc">Instant data retrieval and real-time analytics across all modules.</p>
-          </div>
+          {/* Analytics Dashboard Section */}
+          <section className="analytics-dashboard-section">
+            
+            <AnalyticsDashboard />
+          </section>
 
-          <div className="value-card">
-            <div className="value-icon">
-              {/* Users icon */}
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
+
+          {/* Our Values Section (before footer) */}
+          <section className="blog-values">
+            <div className="values-header">
+              <div className="values-kicker">Why Enterprise Leaders Choose Kloudvault</div>
+              <h3 className="values-title">Built for scale, security, and compliance</h3>
             </div>
-            <div className="value-title">Cloud Native</div>
-            <p className="value-desc">Scale effortlessly without infrastructure overhead or complexity.</p>
-          </div>
-        </div>
-      </section>
-         
-   {/* CTA Section */}
+            <div className="values-grid">
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Shield icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <div className="value-title">Enterprise Security</div>
+                <p className="value-desc">
+                  SOC 2, ISO 27001, GDPR-ready compliance built from day one.
+                </p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Bolt icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z" />
+                  </svg>
+                </div>
+                <div className="value-title">Lightning Fast</div>
+                <p className="value-desc">
+                  Instant data retrieval and real-time analytics across all modules.
+                </p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Users icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div className="value-title">Cloud Native</div>
+                <p className="value-desc">
+                  Scale effortlessly without infrastructure overhead or complexity.
+                </p>
+              </div>
+            </div>
+          </section>
+
+       
+
+          {/* CTA Section */}
           <section className="products-cta-section">
             <div className="products-cta-content">
-              <h2 className="products-cta-title">Ready to Secure Your Data?</h2>
-              <p className="products-cta-desc">Join hundreds of enterprises trusting Kloudvault with their most critical data.</p>
+              <h2 className="products-cta-title">
+                Ready to Secure Your Data?
+              </h2>
+              <p className="products-cta-desc">
+                Join hundreds of enterprises trusting Kloudvault with their most critical data.
+              </p>
               {/* <button className="products-cta-button">
                 Book a Demo <span className="cta-arrow">→</span>
               </button> */}
-               <div className="hero-ctas">
+              <div className="hero-ctas">
                 <button className="cta primary" onClick={() => goTo('support')}>Book a Demo →</button>
                 <button className="cta secondary" onClick={() => goTo('company')}>View Pricing</button>
               </div>
-              
+
             </div>
           </section>
-            
+
+        
 
           {/* Footer Section */}
           <footer className="site-footer">
