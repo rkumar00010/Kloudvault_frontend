@@ -8,6 +8,12 @@ import Company from './Company.tsx'
 import Support from './Support.tsx'
 import AnalyticsDashboard from './components/AnalyticsDashboard.jsx';
 import AISection from  './components/AISection.jsx'
+import Archival from './Archival.jsx'
+import DataBackup from './DataBackup.jsx'
+import ReportsAnalytics from './ReportsAnalytics.jsx'
+import Scanning from './Scanning.jsx'
+import OCR from './OCR.jsx'
+import CTI from './CTI.jsx'
 
 export default function App() {
 
@@ -142,6 +148,7 @@ export default function App() {
           <a href="#" onClick={(e) => handleNavClick(e, 'blogs')} className={currentPage === 'blogs' ? 'active' : ''}>Blogs</a>
           <a href="#" onClick={(e) => handleNavClick(e, 'company')} className={currentPage === 'company' ? 'active' : ''}>Company</a>
           <a href="#" onClick={(e) => handleNavClick(e, 'support')} className={currentPage === 'support' ? 'active' : ''}>Support</a>
+          {/* <a href="#" onClick={(e) => handleNavClick(e, 'archival')} className={currentPage === 'archival' ? 'active' : ''}>Archival</a> */}
         </nav>
 
         <div className="nav-right">
@@ -550,59 +557,59 @@ export default function App() {
               <div className="solutions-desc">Six integrated modules to secure, manage, and unlock the value of your enterprise data.</div>
             </div>
             <div className="solutions-grid">
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('archival'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon archival">
                   {/* Archive box icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
                 </div>
                 <div className="solution-title">Archival Data</div>
                 <div className="solution-desc">Policy-driven cold storage with warm retrieval and legal holds.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('archival'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('backup'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon backup">
                   {/* Database icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#bfaaff" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="solution-title">Data Backup</div>
                 <div className="solution-desc">Incremental, immutable backups with instant restore capabilities.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('backup'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('reports'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon analytics">
                   {/* Analytics bar chart icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#bfaaff" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#bfaaff" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#bfaaff" /></svg>
                 </div>
                 <div className="solution-title">Reports & Analytics</div>
                 <div className="solution-desc">Unified reporting layer with dashboards and comprehensive exports.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('reports'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('scanning'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon scanning">
                   {/* Scan/QR icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="solution-title">Scanning</div>
                 <div className="solution-desc">High-volume document capture with intelligent queue management.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('scanning'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('ocr'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon ocr">
                   {/* OCR document icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
                 </div>
                 <div className="solution-title">OCR</div>
                 <div className="solution-desc">Accurate text extraction with entity detection and auto-tagging.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('ocr'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('products'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+              <div className="solution-card" onClick={() => { setCurrentPage('cti'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon cti">
                   {/* Phone/CTI icon */}
                   <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#bfaaff" strokeWidth="2.2" fill="none" /></svg>
                 </div>
                 <div className="solution-title">Calling (CTI)</div>
                 <div className="solution-desc">Click-to-call, call logging, recordings, and analytics.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('products'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('cti'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
               </div>
             </div>
           </section>
@@ -974,7 +981,21 @@ export default function App() {
         <Company />
       ) : currentPage === 'support' ? (
         <Support />
-      ) : null}
+      ) : currentPage === 'archival' ? (
+        <Archival />
+      ) : currentPage === 'backup' ? (
+        <DataBackup />
+      ) : currentPage === 'reports' ? (
+        <ReportsAnalytics />
+      ) : currentPage === 'scanning' ? (
+        <Scanning />
+      ) : currentPage === 'ocr' ? (
+        <OCR />
+      ) : currentPage === 'cti' ? (
+        <CTI />
+      ) 
+      
+      : null}
 
     </div>
   )

@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
 import './archival.css'
 
-export default function Archival(){
+export default function CTI(){
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
-  const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
+  const [billing, setBilling] = useState('monthly')
+
   return (
     <div className="archival-page">
-      {/* <div className="blog-hero"></div> */}
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
+            {/* Phone/CTI icon */}
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.6" opacity="0.9"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Archival Data</div>
-            <h1 className="archival-title">Policy‑driven cold storage with warm retrieval and legal holds.</h1>
+            <div className="archival-kicker">Calling (CTI)</div>
+            <h1 className="archival-title">Complete telephony integration for your CRM.</h1>
           </div>
         </div>
       </section>
@@ -32,29 +33,29 @@ export default function Archival(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Reduce storage costs by up to 80% while maintaining instant access to historical data.</div>
-              <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div>
+              <div className="ov-line">Integrate calling directly into your workflows with click-to-call, automatic call logging, recordings, and comprehensive analytics. Transform your customer communications.</div>
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Organizations spend millions on primary storage for data that's rarely accessed. Manual archival processes are slow, error‑prone, and fail to meet compliance requirements.</p>
+                <p className="ov-text">Manual dialing wastes agent time. Call data is disconnected from CRM systems. Compliance requires call recording but storage is expensive.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Kloudvault automates archival with intelligent policies that move data to cost‑effective cold storage while maintaining instant retrieval. Legal holds are managed automatically with complete audit trails.</p>
+                <p className="ov-text">Our CTI platform integrates with your CRM to enable one-click calling, automatic logging, cloud recording, and analytics—all within your existing workflow.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated tiering based on access patterns</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Legal hold management with audit trails</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Instant warm retrieval in under 60 seconds</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Policy‑based retention and deletion</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Compliance reporting for SOC 2, ISO 27001</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross‑region replication for disaster recovery</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Click-to-call from any CRM or application</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cloud-based call recording and storage</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">IVR and call routing workflows</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automatic call logging and CRM updates</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Real-time and historical call analytics</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">
+Compliance-ready recording retention</span></div>
               </div>
             </div>
 
@@ -62,9 +63,9 @@ export default function Archival(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'How fast can I retrieve archived data?', a: 'Most retrievals complete in under 60 seconds thanks to our warm retrieval tier. Bulk restore jobs scale horizontally.' },
-                  { q: 'Is archived data encrypted?', a: 'Yes. Data is encrypted in transit (TLS 1.2+) and at rest using AES‑256 with optional customer‑managed keys.' },
-                  { q: 'Can I customize retention policies?', a: 'Policies can be defined per dataset, tag, or tenant. Support for legal holds, time‑based and event‑based retention.' }
+                  { q: 'Which CRM systems do you integrate with?', a: 'We have native integrations for Salesforce, HubSpot, Zoho, and Microsoft Dynamics. Custom integrations are available via our API.' },
+                  { q: 'How long are call recordings stored?', a: 'Recording retention is configurable from 30 days to unlimited. Enterprise plans include archival integration for long-term compliance storage.' },
+                  { q: 'Can I use my existing phone system?', a: 'Yes. We support SIP trunking and can integrate with most PBX systems including Asterisk, FreePBX, and Cisco.' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -80,6 +81,7 @@ export default function Archival(){
             </div>
           </div>
         )}
+
         {tab==='pricing' && (
           <div className="pricing-wrap">
             <div className="pricing-eyebrow">Simple, Transparent Pricing</div>
@@ -93,60 +95,48 @@ export default function Archival(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?299:239}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">1TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?25:39}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Basic archival policies</li>
-                  <li>30‑day retention</li>
+                  <li>Click-to-call</li>
+                  <li>Basic analytics</li>
                   <li>Email support</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
               </div>
-
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price">
-                  <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?999:799}</span>
-                  <span className="per">/month</span>
-                </div>
-                <div className="plan-included">10TB included</div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?45:159}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Advanced policies</li>
-                  <li>Legal hold</li>
+                  <li>Call recording</li>
+                  <li>CRM integration</li>
+                  <li>Advanced analytics</li>
                   <li>Priority support</li>
-                  <li>API access</li>
+
                 </ul>
                 <button className="plan-cta gradient">Get Started</button>
               </div>
-
               <div className="plan">
                 <div className="plan-name">Enterprise</div>
-                <div className="plan-price">
-                  <span className="custom">Custom</span>
-                </div>
-                <div className="plan-included">Unlimited included</div>
+                <div className="plan-price"><span className="custom">Custom</span></div>
                 <ul className="plan-list">
                   <li>Everything in Growth</li>
-                  <li>Custom SLAs</li>
+                  <li>Custom IVR</li>
                   <li>Dedicated support</li>
-                  <li>White‑glove migration</li>
+                  <li>SIP trunking</li>
+
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
               </div>
             </div>
           </div>
         )}
+
         {tab==='about' && (
           <div className="about-wrap">
             <div className="about-eyebrow">About Kloudvault</div>
-            <h3 className="about-headline">Kloudvault is built by Kloudrac, a team with over a decade of cloud infrastructure and data management experience.</h3>
-            <p className="about-desc">We've worked with enterprises across BFSI, healthcare, and public sector organizations to solve their most complex data challenges. Kloudvault represents the culmination of that experience—a unified platform that eliminates the complexity and vendor sprawl of traditional data lifecycle management.</p>
+            <h3 className="about-headline">Enterprise‑ready CTI, built by a team with a decade of CRM experience.</h3>
+            <p className="about-desc">We’ve delivered telephony and CRM integrations for sales and support teams at scale—focusing on reliability, analytics, and security.</p>
 
             <div className="about-highlights">
               <div className="ah-item">
@@ -174,8 +164,8 @@ export default function Archival(){
 
             <div className="about-cta">
               <div className="cta-left">
-                <div className="cta-title">Ready to learn more?</div>
-                <div className="cta-sub">Schedule a personalized demo with our team to see how Archival Data can transform your data operations.</div>
+                <div className="cta-title">See a Live Demo</div>
+                <div className="cta-sub">Walk through CTI setup, call logging, and analytics dashboards with our team.</div>
               </div>
               <div className="cta-right">
                 <button className="cta primary">Book a Demo</button>
@@ -184,7 +174,7 @@ export default function Archival(){
           </div>
         )}
       </section>
-        {/* Footer Section */}
+       {/* Footer Section */}
           <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-brand">

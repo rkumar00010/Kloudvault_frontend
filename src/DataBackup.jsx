@@ -14,8 +14,9 @@ export default function Archival(){
             <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Archival Data</div>
-            <h1 className="archival-title">Policy‑driven cold storage with warm retrieval and legal holds.</h1>
+            
+            <div className="archival-kicker">Data Backup</div>
+            <h1 className="archival-title">Incremental, immutable backups with instant restore.</h1>
           </div>
         </div>
       </section>
@@ -32,29 +33,29 @@ export default function Archival(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Reduce storage costs by up to 80% while maintaining instant access to historical data.</div>
-              <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div>
+              <div className="ov-line">Enterprise-grade backup with incremental snapshots, immutable storage, and point-in-time recovery. Protect against ransomware with air-gapped backups.</div>
+              {/* <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div> */}
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Organizations spend millions on primary storage for data that's rarely accessed. Manual archival processes are slow, error‑prone, and fail to meet compliance requirements.</p>
+                <p className="ov-text">Traditional backups are slow, expensive, and vulnerable to ransomware. Recovery times measured in hours or days put businesses at risk.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Kloudvault automates archival with intelligent policies that move data to cost‑effective cold storage while maintaining instant retrieval. Legal holds are managed automatically with complete audit trails.</p>
+                <p className="ov-text">Our incremental backup engine captures only changes, reducing storage and time by 95%. Immutable storage prevents tampering, and instant recovery gets you back online in minutes.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated tiering based on access patterns</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Legal hold management with audit trails</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Instant warm retrieval in under 60 seconds</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Policy‑based retention and deletion</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Compliance reporting for SOC 2, ISO 27001</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross‑region replication for disaster recovery</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Incremental forever backups</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Immutable storage prevents ransomware</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated backup verification</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Point-in-time recovery to any snapshot</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross-region and cross-cloud replication</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Granular file and folder recovery</span></div>
               </div>
             </div>
 
@@ -62,9 +63,9 @@ export default function Archival(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'How fast can I retrieve archived data?', a: 'Most retrievals complete in under 60 seconds thanks to our warm retrieval tier. Bulk restore jobs scale horizontally.' },
-                  { q: 'Is archived data encrypted?', a: 'Yes. Data is encrypted in transit (TLS 1.2+) and at rest using AES‑256 with optional customer‑managed keys.' },
-                  { q: 'Can I customize retention policies?', a: 'Policies can be defined per dataset, tag, or tenant. Support for legal holds, time‑based and event‑based retention.' }
+                  { q: 'What is the Recovery time objective (RTO)?', a: 'For instant recovery, RTO is typically under 5 minutes. Full system restores depend on data size but average 15-30 minutes for most workloads.' },
+                  { q: 'Hopw does immutable storage work ?', a: 'Backups are written in append-only mode with WORM (write once, read many) guarantees. Even if an attacker gains access, they cannot delete or modify backups.' },
+                  { q: 'Can I backup databases and VMs?', a: 'Yes. We support application-aware backups for databases (SQL Server, Oracle, PostgreSQL, MongoDB) and hypervisors (VMware, Hyper-V, KVM).' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -95,13 +96,13 @@ export default function Archival(){
                 <div className="plan-name">Starter</div>
                 <div className="plan-price">
                   <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?299:239}</span>
+                  <span className="amount">{billing==='monthly'?199:239}</span>
                   <span className="per">/month</span>
                 </div>
-                <div className="plan-included">1TB included</div>
+                <div className="plan-included">500GB included</div>
                 <ul className="plan-list">
-                  <li>Basic archival policies</li>
-                  <li>30‑day retention</li>
+                  <li>Daily backups</li>
+                  <li>7‑day retention</li>
                   <li>Email support</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
@@ -112,15 +113,15 @@ export default function Archival(){
                 <div className="plan-name">Growth</div>
                 <div className="plan-price">
                   <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?999:799}</span>
+                  <span className="amount">{billing==='monthly'?799:799}</span>
                   <span className="per">/month</span>
                 </div>
-                <div className="plan-included">10TB included</div>
+                <div className="plan-included">5TB included</div>
                 <ul className="plan-list">
-                  <li>Advanced policies</li>
-                  <li>Legal hold</li>
+                  <li>Hourly backups</li>
+                  <li>30-day retention</li>
+                  <li>Instant recovery</li>
                   <li>Priority support</li>
-                  <li>API access</li>
                 </ul>
                 <button className="plan-cta gradient">Get Started</button>
               </div>
@@ -133,9 +134,9 @@ export default function Archival(){
                 <div className="plan-included">Unlimited included</div>
                 <ul className="plan-list">
                   <li>Everything in Growth</li>
-                  <li>Custom SLAs</li>
+                  <li>Immutable storage</li>
+                  <li>Cross-cloud replication</li>
                   <li>Dedicated support</li>
-                  <li>White‑glove migration</li>
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
               </div>
