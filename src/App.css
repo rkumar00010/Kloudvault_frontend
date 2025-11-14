@@ -3,7 +3,7 @@
 .app {
   min-height: 100vh;
   color: rgba(255,255,255,0.92);
-  background-color: #0b0d17; /* deep navy */
+  background-color:#0a0f1e; /* deep navy */
 
   /* ✅ Subtle grid background */
   background-image:
@@ -79,7 +79,7 @@
 	/* box-sizing: border-box; */
 	background: linear-gradient(
     to bottom,
-    rgba(139, 92, 246, 0.08),
+    #040813,
     transparent
   );
 }
@@ -526,6 +526,7 @@ html, body, #root {
     justify-content: center;
     /* padding: 70px 20px 0px; */
     position: relative;
+    background-color: #0a0f1e;
 }
 
 /* Hero light + beam accents (center glow + soft streaks) */
