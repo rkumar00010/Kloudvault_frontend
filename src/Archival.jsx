@@ -7,11 +7,11 @@ export default function Archival(){
   const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
   return (
     <div className="archival-page">
-      {/* <div className="blog-hero"></div> */}
+      <div className="blog-hero"></div>
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
+            <svg width="44" height="44" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
           </div>
           <div className="archival-hero-text">
             <div className="archival-kicker">Archival Data</div>
@@ -23,8 +23,8 @@ export default function Archival(){
       <div className="archival-tabs">
         <div className="archival-tabs-inner">
           <button className={`archival-tab ${tab==='overview'?'active':''}`} onClick={()=>setTab('overview')}>Overview</button>
-          <button className={`archival-tab ${tab==='pricing'?'':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
-          <button className={`archival-tab ${tab==='about'?'':''}`} onClick={()=>setTab('about')}>About Us</button>
+          <button className={`archival-tab ${tab==='pricing'?'active':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
+          <button className={`archival-tab ${tab==='about'?'active':''}`} onClick={()=>setTab('about')}>About Us</button>
         </div>
       </div>
 
@@ -35,6 +35,7 @@ export default function Archival(){
               <div className="ov-line">Reduce storage costs by up to 80% while maintaining instant access to historical data.</div>
               <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div>
             </div>
+           
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
@@ -151,21 +152,21 @@ export default function Archival(){
             <div className="about-highlights">
               <div className="ah-item">
                 <div className="ah-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
                 </div>
                 <div className="ah-title">Security First</div>
                 <div className="ah-text">SOC 2, ISO 27001 certified with zero‑trust architecture</div>
               </div>
               <div className="ah-item">
                 <div className="ah-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
                 </div>
                 <div className="ah-title">Built for Scale</div>
                 <div className="ah-text">Managing 10PB+ across 500+ enterprise customers</div>
               </div>
               <div className="ah-item">
                 <div className="ah-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <div className="ah-title">Expert Support</div>
                 <div className="ah-text">Dedicated success team with 24/7 enterprise support</div>

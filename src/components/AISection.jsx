@@ -20,11 +20,11 @@ const AISection = () => {
       createConnections() {
         const connections = [
           { from: 'center', to: 'left-1', duration: 4 },
-          { from: 'center', to: 'left-2', duration: 3.5 },
-          { from: 'center', to: 'left-3', duration: 4.2 },
-          { from: 'center', to: 'right-1', duration: 3.8 },
-          { from: 'center', to: 'right-2', duration: 4.1 },
-          { from: 'center', to: 'right-3', duration: 3.6 }
+          { from: 'center', to: 'left-2', duration: 4 },
+          { from: 'center', to: 'left-3', duration: 4},
+          { from: 'center', to: 'right-1', duration: 4 },
+          { from: 'center', to: 'right-2', duration: 4 },
+          { from: 'center', to: 'right-3', duration: 4 }
         ];
         this.connections = connections;
       }

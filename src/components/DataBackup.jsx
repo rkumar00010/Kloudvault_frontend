@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
-import './archival.css'
+import '../style/archival.css'
 
-export default function ReportsAnalytics(){
+export default function Archival(){
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
-  const [billing, setBilling] = useState('monthly')
-
+  const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
   return (
     <div className="archival-page">
-      <div className="blog-hero"></div>
+      {/* <div className="blog-hero"></div> */}
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            {/* Bar chart icon */}
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#ffffff" opacity="0.9"/><rect x="16" y="16" width="4" height="14" rx="2" fill="#ffffff" opacity="0.9"/><rect x="24" y="10" width="4" height="20" rx="2" fill="#ffffff" opacity="0.9"/></svg>
+            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#ffffff" strokeWidth="1.8" opacity="0.9"/><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#ffffff" opacity="0.9"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Reports & Analytics</div>
-            <h1 className="archival-title">Unified insights across your entire data estate.</h1>
+            
+            <div className="archival-kicker">Data Backup</div>
+            <h1 className="archival-title">Incremental, immutable backups with instant restore.</h1>
           </div>
         </div>
       </section>
@@ -25,8 +24,8 @@ export default function ReportsAnalytics(){
       <div className="archival-tabs">
         <div className="archival-tabs-inner">
           <button className={`archival-tab ${tab==='overview'?'active':''}`} onClick={()=>setTab('overview')}>Overview</button>
-          <button className={`archival-tab ${tab==='pricing'?'active':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
-          <button className={`archival-tab ${tab==='about'?'active':''}`} onClick={()=>setTab('about')}>About Us</button>
+          <button className={`archival-tab ${tab==='pricing'?'':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
+          <button className={`archival-tab ${tab==='about'?'':''}`} onClick={()=>setTab('about')}>About Us</button>
         </div>
       </div>
 
@@ -34,28 +33,29 @@ export default function ReportsAnalytics(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Turn data into decisions with comprehensive reporting and analytics. Pre-built dashboards, custom reports, and real-time insights across all Kloudvault modules.</div>
+              <div className="ov-line">Enterprise-grade backup with incremental snapshots, immutable storage, and point-in-time recovery. Protect against ransomware with air-gapped backups.</div>
+              {/* <div className="ov-line">Automated lifecycle policies, legal hold workflows, and compliance‑ready audit trails.</div> */}
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Data is scattered across multiple systems, making it impossible to get a complete picture. Manual reporting is time-consuming and error-prone.</p>
+                <p className="ov-text">Traditional backups are slow, expensive, and vulnerable to ransomware. Recovery times measured in hours or days put businesses at risk.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Our unified analytics platform aggregates data across archival, backup, scanning, OCR, and CTI systems. Build custom dashboards, automate reporting, and export insights in any format.</p>
+                <p className="ov-text">Our incremental backup engine captures only changes, reducing storage and time by 95%. Immutable storage prevents tampering, and instant recovery gets you back online in minutes.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Pre-built dashboards for compliance, storage, and usage</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Scheduled reports with automated distribution</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Export to PDF, Excel, CSV, and APIs</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Custom report builder with drag-and-drop interface</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Real-time analytics and alerting</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Role-based access controls for sensitive data</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Incremental forever backups</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Immutable storage prevents ransomware</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automated backup verification</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Point-in-time recovery to any snapshot</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cross-region and cross-cloud replication</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Granular file and folder recovery</span></div>
               </div>
             </div>
 
@@ -63,9 +63,9 @@ export default function ReportsAnalytics(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'Can I create custom reports?', a: 'Yes. Our report builder lets you create custom reports using any data field, with filtering, grouping, and visualization options.' },
-                  { q: 'How do I share reports?', a: 'Schedule automated distribution via email, export to common formats, or share via secure links with expiration dates.' },
-                  { q: 'What compliance reports are available?', a: 'Pre-built reports for SOC 2, ISO 27001, GDPR, HIPAA, and more. Customize to meet your specific audit requirements.' }
+                  { q: 'What is the Recovery time objective (RTO)?', a: 'For instant recovery, RTO is typically under 5 minutes. Full system restores depend on data size but average 15-30 minutes for most workloads.' },
+                  { q: 'Hopw does immutable storage work ?', a: 'Backups are written in append-only mode with WORM (write once, read many) guarantees. Even if an attacker gains access, they cannot delete or modify backups.' },
+                  { q: 'Can I backup databases and VMs?', a: 'Yes. We support application-aware backups for databases (SQL Server, Oracle, PostgreSQL, MongoDB) and hypervisors (VMware, Hyper-V, KVM).' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -81,7 +81,6 @@ export default function ReportsAnalytics(){
             </div>
           </div>
         )}
-
         {tab==='pricing' && (
           <div className="pricing-wrap">
             <div className="pricing-eyebrow">Simple, Transparent Pricing</div>
@@ -95,46 +94,55 @@ export default function ReportsAnalytics(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:79}</span><span className="per">/month</span></div>
-                {/* <div className="plan-included">1 Dashboard</div> */}
+                <div className="plan-price">
+                  <span className="currency">$</span>
+                  <span className="amount">{billing==='monthly'?199:239}</span>
+                  <span className="per">/month</span>
+                </div>
+                <div className="plan-included">500GB included</div>
                 <ul className="plan-list">
-                  <li>Basic dashboards</li>
-                  <li>10 custom reports</li>
-                  <li>Email supportt</li>
+                  <li>Daily backups</li>
+                  <li>7‑day retention</li>
+                  <li>Email support</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
               </div>
+
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?699:239}</span><span className="per">/month</span></div>
-                {/* <div className="plan-included">10 Dashboards</div> */}
+                <div className="plan-price">
+                  <span className="currency">$</span>
+                  <span className="amount">{billing==='monthly'?799:799}</span>
+                  <span className="per">/month</span>
+                </div>
+                <div className="plan-included">5TB included</div>
                 <ul className="plan-list">
-                  <li>Unlimited custom reports</li>
-                  <li>Scheduled reporting</li>
-                  <li>API access</li>
+                  <li>Hourly backups</li>
+                  <li>30-day retention</li>
+                  <li>Instant recovery</li>
                   <li>Priority support</li>
-
                 </ul>
                 <button className="plan-cta gradient">Get Started</button>
               </div>
+
               <div className="plan">
                 <div className="plan-name">Enterprise</div>
-                <div className="plan-price"><span className="custom">Custom</span></div>
-                {/* <div className="plan-included">Unlimited</div> */}
+                <div className="plan-price">
+                  <span className="custom">Custom</span>
+                </div>
+                <div className="plan-included">Unlimited included</div>
                 <ul className="plan-list">
                   <li>Everything in Growth</li>
-                  <li>White-label reports</li>
+                  <li>Immutable storage</li>
+                  <li>Cross-cloud replication</li>
                   <li>Dedicated support</li>
-                  <li>Custom integrations</li>
-
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
               </div>
             </div>
           </div>
         )}
-
         {tab==='about' && (
           <div className="about-wrap">
             <div className="about-eyebrow">About Kloudvault</div>
@@ -168,7 +176,7 @@ export default function ReportsAnalytics(){
             <div className="about-cta">
               <div className="cta-left">
                 <div className="cta-title">Ready to learn more?</div>
-                <div className="cta-sub">Schedule a personalized demo with our team to see how Reports & Analytics can transform your data operations.</div>
+                <div className="cta-sub">Schedule a personalized demo with our team to see how Archival Data can transform your data operations.</div>
               </div>
               <div className="cta-right">
                 <button className="cta primary">Book a Demo</button>
@@ -177,7 +185,7 @@ export default function ReportsAnalytics(){
           </div>
         )}
       </section>
-       {/* Footer Section */}
+        {/* Footer Section */}
           <footer className="site-footer">
             <div className="footer-inner">
               <div className="footer-brand">

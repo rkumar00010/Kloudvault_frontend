@@ -36,12 +36,13 @@
   align-items: flex-start;
 }
 
-/* Box Styles with Continuous Border Animation */
+/* Box Styles */
 .box {
   background: linear-gradient(135deg, #0a0f1f 0%, #1a1f3f 100%);
   color: #ffffff;
   padding: 20px 15px;
   border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
   width: 160px;
   text-align: center;
   font-size: 14px;
@@ -49,47 +50,7 @@
   position: relative;
   z-index: 10;
   transition: all 0.4s ease;
-  /* Remove original border */
-  border: none;
-}
-
-/* Continuous Border Animation for Boxes */
-.box::before {
-  content: '';
-  position: absolute;
-  top: -0.1px;
-  left: -0.1px;
-  right: -0.1px;
-  bottom: -0.1px;
-  border-radius: 12.5px;
-  background: linear-gradient(45deg, 
-    #ffffff, #191937, #ffffff, #191937,
-    #ffffff, #191937, #ffffff, #191937);
-  background-size: 400% 400%;
-  z-index: -1;
-  animation: borderFlow 20s linear infinite;
-}
-
-/* Inner background to hide the gradient inside */
-.box::after {
-  content: '';
-  position: absolute;
-  top: 0.5px;
-  left: 0.5px;
-  right: 0.5px;
-  bottom: 0.5px;
-  border-radius: 11.5px;
-  background: linear-gradient(135deg, #0a0f1f 0%, #0a0f1f 100%);
-  z-index: -1;
-}
-
-@keyframes borderFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
+  /* animation: boxFloat 3s ease-in-out infinite; */
 }
 
 .box:nth-child(1) { animation-delay: 0s; }
@@ -107,7 +68,7 @@
   }
 }
 
-/* Center AI Box with Continuous Border */
+/* Center AI Box */
 .center-ai {
   display: flex;
   align-items: center;
@@ -117,49 +78,17 @@
 }
 
 .ai-box {
-  background: linear-gradient(135deg, #0a0f1f 0%, #0a0f1f 100%);
+  background: linear-gradient(135deg, #0a0f1f 0%, #2d1b69 100%);
   color: #ffffff;
   padding: 40px 50px;
   border-radius: 20px;
-  border: none;
+  border: 2px solid rgba(139, 92, 246, 0.5);
   font-size: 32px;
   font-weight: bold;
   z-index: 15;
   position: relative;
+  /* animation: centerPulse 2s ease-in-out infinite; */
   box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
-  /* Original size maintain */
-  width: auto;
-  height: auto;
-}
-
-/* Continuous Border for AI Box */
-.ai-box::before {
-  content: '';
-  position: absolute;
-  top: -0.1px;
-  left: -0.1px;
-  right: -0.1px;
-  bottom: -0.1px;
-  border-radius: 20.5px;
-  background: linear-gradient(45deg, 
-    #ffffff, #191937, #ffffff, #191937,
-    #ffffff, #191937, #ffffff, #191937);
-  background-size: 400% 400%;
-  z-index: -1;
-  animation: borderFlow 20s linear infinite;
-}
-
-/* Inner background for AI box */
-.ai-box::after {
-  content: '';
-  position: absolute;
-  top: 0.5px;
-  left: 0.5px;
-  right: 0.5px;
-  bottom: 0.5px;
-  border-radius: 19.5px;
-  background: linear-gradient(135deg, #0a0f1f 0%, #121933 100%);
-  z-index: -1;
 }
 
 @keyframes centerPulse {
@@ -186,16 +115,16 @@
 
 .energy-dot {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: linear-gradient(45deg, #ffffff, #191937);
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #8B5CF6, #D4AF37);
   border-radius: 50%;
-  filter: blur(0.5px);
+  filter: blur(1px);
   z-index: 8;
   animation: travelDot 3s linear infinite;
   box-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(25, 25, 55, 0.3);
+    0 0 15px rgba(139, 92, 246, 0.8),
+    0 0 30px rgba(139, 92, 246, 0.4);
 }
 
 /* Different animation paths for each dot */
@@ -206,31 +135,31 @@
 }
 
 .dot-1 { 
-  animation: travelToLeft2 4s linear infinite;
+  animation: travelToLeft2 3.5s linear infinite;
   top: 50%;
   left: 50%;
 }
 
 .dot-2 { 
-  animation: travelToLeft3 4s linear infinite;
+  animation: travelToLeft3 4.2s linear infinite;
   top: 43%;
   left: 50%;
 }
 
 .dot-3 { 
-  animation: travelToRight1 4s linear infinite;
+  animation: travelToRight1 3.8s linear infinite;
   top: 36.5%;
   right: 50%;
 }
 
 .dot-4 { 
-  animation: travelToRight2 4s linear infinite;
+  animation: travelToRight2 4.1s linear infinite;
   top: 50%;
   right: 50%;
 }
 
 .dot-5 { 
-  animation: travelToRight3 4s linear infinite;
+  animation: travelToRight3 3.6s linear infinite;
   top: 43%;
   right: 50%;
 }
@@ -416,20 +345,61 @@
 }
 
 /* Box activation effects */
+.box::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.box.dot-active::after {
+  width: 120px;
+  height: 120px;
+  opacity: 0.4;
+  animation: boxPulse 0.5s ease-out;
+}
+
+@keyframes boxPulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    opacity: 0.4;
+  }
+}
+
 .box.connected {
   animation: connectedGlow 2s ease-in-out;
+  border-color: rgba(139, 92, 246, 0.8);
 }
 
 @keyframes connectedGlow {
   0%, 100% {
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
   }
   50% {
-    box-shadow: 0 15px 40px rgba(25, 25, 55, 0.6);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.8);
   }
 }
 
-/* Background energy field - Green removed */
+/* Background energy field */
 .ai-energy-field {
   position: absolute;
   top: 50%;
@@ -437,7 +407,7 @@
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
   filter: blur(80px);
   z-index: 1;
   animation: energyPulse 6s ease-in-out infinite;
@@ -445,11 +415,11 @@
 
 @keyframes energyPulse {
   0%, 100% {
-    opacity: 0.2;
+    opacity: 0.3;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.6;
     transform: translate(-50%, -50%) scale(1.1);
   }
 }
@@ -485,8 +455,8 @@
   
   /* Adjust animations for mobile */
   .energy-dot {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
   }
 }
 
