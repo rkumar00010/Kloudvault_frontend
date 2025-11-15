@@ -799,7 +799,7 @@ export default function App() {
                   <li>Instant retrieval</li>
                   <li>Policy-based retention</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e) => { e.preventDefault(); goTo('archival'); }}>Learn More <span>→</span></a>
               </div>
 
               {/* Data Backup */}
@@ -818,7 +818,7 @@ export default function App() {
                   <li>Immutable storage</li>
                   <li>Cross‑region replication</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('backup');}}>Learn More <span>→</span></a>
               </div>
 
               {/* Reports & Analytics */}
@@ -837,7 +837,7 @@ export default function App() {
                   <li>Compliance analytics</li>
                   <li>Real‑time insights</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('reports');}}>Learn More <span>→</span></a>
               </div>
 
               {/* Scanning */}
@@ -856,7 +856,7 @@ export default function App() {
                   <li>Quality control</li>
                   <li>Multi‑format support</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('scanning');}}>Learn More <span>→</span></a>
               </div>
 
               {/* OCR */}
@@ -875,7 +875,7 @@ export default function App() {
                   <li>Auto‑tagging</li>
                   <li>Searchable archives</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('ocr');}}>Learn More <span>→</span></a>
               </div>
 
               {/* Calling (CTI) */}
@@ -894,7 +894,7 @@ export default function App() {
                   <li>Call analytics</li>
                   <li>CRM integration</li>
                 </ul>
-                <a className="product-link" href="#">Learn More <span>→</span></a>
+                <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('cti');}}>Learn More <span>→</span></a>
               </div>
             </div>
           </section>

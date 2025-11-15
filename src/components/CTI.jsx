@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
-import './archival.css'
+import '../style/archival.css'
 
-export default function ReportsAnalytics(){
+export default function CTI(){
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
   const [billing, setBilling] = useState('monthly')
 
   return (
     <div className="archival-page">
-      <div className="blog-hero"></div>
       <section className="archival-hero">
         <div className="archival-hero-inner">
           <div className="archival-icon">
-            {/* Bar chart icon */}
-            <svg width="28" height="28" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#ffffff" opacity="0.9"/><rect x="16" y="16" width="4" height="14" rx="2" fill="#ffffff" opacity="0.9"/><rect x="24" y="10" width="4" height="20" rx="2" fill="#ffffff" opacity="0.9"/></svg>
+            {/* Phone/CTI icon */}
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.6" opacity="0.9"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z"/></svg>
           </div>
           <div className="archival-hero-text">
-            <div className="archival-kicker">Reports & Analytics</div>
-            <h1 className="archival-title">Unified insights across your entire data estate.</h1>
+            <div className="archival-kicker">Calling (CTI)</div>
+            <h1 className="archival-title">Complete telephony integration for your CRM.</h1>
           </div>
         </div>
       </section>
@@ -25,8 +24,8 @@ export default function ReportsAnalytics(){
       <div className="archival-tabs">
         <div className="archival-tabs-inner">
           <button className={`archival-tab ${tab==='overview'?'active':''}`} onClick={()=>setTab('overview')}>Overview</button>
-          <button className={`archival-tab ${tab==='pricing'?'active':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
-          <button className={`archival-tab ${tab==='about'?'active':''}`} onClick={()=>setTab('about')}>About Us</button>
+          <button className={`archival-tab ${tab==='pricing'?'':''}`} onClick={()=>setTab('pricing')}>Pricing</button>
+          <button className={`archival-tab ${tab==='about'?'':''}`} onClick={()=>setTab('about')}>About Us</button>
         </div>
       </div>
 
@@ -34,28 +33,29 @@ export default function ReportsAnalytics(){
         {tab==='overview' && (
           <div className="archival-overview">
             <div className="ov-head">
-              <div className="ov-line">Turn data into decisions with comprehensive reporting and analytics. Pre-built dashboards, custom reports, and real-time insights across all Kloudvault modules.</div>
+              <div className="ov-line">Integrate calling directly into your workflows with click-to-call, automatic call logging, recordings, and comprehensive analytics. Transform your customer communications.</div>
             </div>
             <div className="ov-grid">
               <div className="ov-card ov-problem">
                 <div className="ov-title red">The Problem</div>
-                <p className="ov-text">Data is scattered across multiple systems, making it impossible to get a complete picture. Manual reporting is time-consuming and error-prone.</p>
+                <p className="ov-text">Manual dialing wastes agent time. Call data is disconnected from CRM systems. Compliance requires call recording but storage is expensive.</p>
               </div>
               <div className="ov-card ov-solution">
                 <div className="ov-title gold">Our Solution</div>
-                <p className="ov-text">Our unified analytics platform aggregates data across archival, backup, scanning, OCR, and CTI systems. Build custom dashboards, automate reporting, and export insights in any format.</p>
+                <p className="ov-text">Our CTI platform integrates with your CRM to enable one-click calling, automatic logging, cloud recording, and analytics—all within your existing workflow.</p>
               </div>
             </div>
 
             <div className="ov-features">
               <div className="ov-section-title">Key Features</div>
               <div className="feat-grid">
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Pre-built dashboards for compliance, storage, and usage</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Scheduled reports with automated distribution</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Export to PDF, Excel, CSV, and APIs</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Custom report builder with drag-and-drop interface</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Real-time analytics and alerting</span></div>
-                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Role-based access controls for sensitive data</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Click-to-call from any CRM or application</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Cloud-based call recording and storage</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">IVR and call routing workflows</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Automatic call logging and CRM updates</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">Real-time and historical call analytics</span></div>
+                <div className="feat-item"><span className="feat-dot">✓</span><span className="feat-text">
+Compliance-ready recording retention</span></div>
               </div>
             </div>
 
@@ -63,9 +63,9 @@ export default function ReportsAnalytics(){
               <div className="ov-section-title">Frequently Asked Questions</div>
               <div className="faq-list">
                 {[ 
-                  { q: 'Can I create custom reports?', a: 'Yes. Our report builder lets you create custom reports using any data field, with filtering, grouping, and visualization options.' },
-                  { q: 'How do I share reports?', a: 'Schedule automated distribution via email, export to common formats, or share via secure links with expiration dates.' },
-                  { q: 'What compliance reports are available?', a: 'Pre-built reports for SOC 2, ISO 27001, GDPR, HIPAA, and more. Customize to meet your specific audit requirements.' }
+                  { q: 'Which CRM systems do you integrate with?', a: 'We have native integrations for Salesforce, HubSpot, Zoho, and Microsoft Dynamics. Custom integrations are available via our API.' },
+                  { q: 'How long are call recordings stored?', a: 'Recording retention is configurable from 30 days to unlimited. Enterprise plans include archival integration for long-term compliance storage.' },
+                  { q: 'Can I use my existing phone system?', a: 'Yes. We support SIP trunking and can integrate with most PBX systems including Asterisk, FreePBX, and Cisco.' }
                 ].map((item, idx) => (
                   <div key={idx} className={`faq-item ${openFAQ===idx?'open':''}`}>
                     <button className="faq-question" onClick={()=> setOpenFAQ(openFAQ===idx?null:idx)}>
@@ -95,24 +95,22 @@ export default function ReportsAnalytics(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:79}</span><span className="per">/month</span></div>
-                {/* <div className="plan-included">1 Dashboard</div> */}
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?25:39}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Basic dashboards</li>
-                  <li>10 custom reports</li>
-                  <li>Email supportt</li>
+                  <li>Click-to-call</li>
+                  <li>Basic analytics</li>
+                  <li>Email support</li>
                 </ul>
                 <button className="plan-cta subtle">Get Started</button>
               </div>
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?699:239}</span><span className="per">/month</span></div>
-                {/* <div className="plan-included">10 Dashboards</div> */}
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?45:159}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
-                  <li>Unlimited custom reports</li>
-                  <li>Scheduled reporting</li>
-                  <li>API access</li>
+                  <li>Call recording</li>
+                  <li>CRM integration</li>
+                  <li>Advanced analytics</li>
                   <li>Priority support</li>
 
                 </ul>
@@ -121,12 +119,11 @@ export default function ReportsAnalytics(){
               <div className="plan">
                 <div className="plan-name">Enterprise</div>
                 <div className="plan-price"><span className="custom">Custom</span></div>
-                {/* <div className="plan-included">Unlimited</div> */}
                 <ul className="plan-list">
                   <li>Everything in Growth</li>
-                  <li>White-label reports</li>
+                  <li>Custom IVR</li>
                   <li>Dedicated support</li>
-                  <li>Custom integrations</li>
+                  <li>SIP trunking</li>
 
                 </ul>
                 <button className="plan-cta subtle">Contact Sales</button>
@@ -138,8 +135,8 @@ export default function ReportsAnalytics(){
         {tab==='about' && (
           <div className="about-wrap">
             <div className="about-eyebrow">About Kloudvault</div>
-            <h3 className="about-headline">Kloudvault is built by Kloudrac, a team with over a decade of cloud infrastructure and data management experience.</h3>
-            <p className="about-desc">We've worked with enterprises across BFSI, healthcare, and public sector organizations to solve their most complex data challenges. Kloudvault represents the culmination of that experience—a unified platform that eliminates the complexity and vendor sprawl of traditional data lifecycle management.</p>
+            <h3 className="about-headline">Enterprise‑ready CTI, built by a team with a decade of CRM experience.</h3>
+            <p className="about-desc">We’ve delivered telephony and CRM integrations for sales and support teams at scale—focusing on reliability, analytics, and security.</p>
 
             <div className="about-highlights">
               <div className="ah-item">
@@ -167,8 +164,8 @@ export default function ReportsAnalytics(){
 
             <div className="about-cta">
               <div className="cta-left">
-                <div className="cta-title">Ready to learn more?</div>
-                <div className="cta-sub">Schedule a personalized demo with our team to see how Reports & Analytics can transform your data operations.</div>
+                <div className="cta-title">See a Live Demo</div>
+                <div className="cta-sub">Walk through CTI setup, call logging, and analytics dashboards with our team.</div>
               </div>
               <div className="cta-right">
                 <button className="cta primary">Book a Demo</button>
