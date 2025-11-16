@@ -44,7 +44,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 1000;
   backdrop-filter: blur(6px);
   border-bottom: 0.5px solid #131826;
   background-color: #0a0f1f;
@@ -113,6 +113,82 @@
   border-radius: 8px;
   box-shadow: 0 6px 18px rgba(124, 58, 237, 0.22);
   font-size: 14px;
+}
+
+/* Mobile nav toggle (hamburger) */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1001; /* above navbar contents */
+}
+.nav-toggle .line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+/* Mobile dropdown panel */
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 16px;
+  width: min(86vw, 300px);
+  background: #0f1224;
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1001;
+}
+.mobile-menu a {
+  color: #e6e8ff;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+.mobile-menu a.active {
+  background: #8B5CF6;
+  color: #fff;
+}
+.mobile-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+}
+.mobile-cta-row .demo {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+/* Breakpoints: hide desktop links on mobile, show hamburger */
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-right { display: none; }
+  .nav-toggle { display: flex; }
+  .navbar { padding-right: 64px; }
+  .logo { width: 150px; height: auto; }
 }
 
 .hero {
@@ -421,7 +497,7 @@
 }
 
 .solution-link:hover {
-  color: #fff6e6;
+  color: #D4AF37;
 }
 
 .solution-card:hover {
@@ -1736,7 +1812,9 @@ textarea:focus-visible {
 }
 
 .footer-badges .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 6px 12px;
   border-radius: 8px;
   border: 1px solid rgba(139, 92, 240, 0.3);
@@ -2392,7 +2470,10 @@ textarea:focus-visible {
   gap: 6px;
   font-size: 14px;
 }
-
+.product-link:hover {
+  /* text-decoration: underline; */
+  color:#D4AF37;
+}
 .product-card:hover {
   transform: translateY(-6px);
   border-color: rgba(139, 92, 246, 0.3);

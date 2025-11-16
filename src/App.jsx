@@ -20,9 +20,24 @@ export default function App() {
   const [rotation, setRotation] = useState(15);
   const [currentPage, setCurrentPage] = useState('home');
 
+  useEffect(() => {
+    const applyHash = () => {
+      const hash = (window.location.hash || '').replace('#', '') || 'home';
+      setCurrentPage(hash);
+      window.scrollTo(0, 0);
+    };
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
+  }, []);
+
   const goTo = (page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash !== `#${page}`) {
+      window.location.hash = `#${page}`;
+    } else {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -709,9 +724,28 @@ export default function App() {
                   Enterprise-ready data lifecycle solutions—secure, compliant, and natively cloud.
                 </p>
                 <div className="footer-badges">
-                  <span className="badge">SQL 2</span>
-                  <span className="badge">ISO 27001</span>
-                  <span className="badge">GDPR Ready</span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/>
+                      <path d="M9.5 12l2 2 4-4"/>
+                    </svg>
+                    SOC 2
+                  </span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <circle cx="12" cy="12" r="9"/>
+                      <path d="M8 12h8"/>
+                      <path d="M12 8v8"/>
+                    </svg>
+                    ISO 27001
+                  </span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <rect x="4" y="10" width="16" height="10" rx="2"/>
+                      <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                    </svg>
+                    GDPR Ready
+                  </span>
                 </div>
                 <div className="newsletter">
                   <p>Subscribe to our newsletter</p>
@@ -724,19 +758,19 @@ export default function App() {
 
               <div className="footer-links">
                 <h4>Solutions</h4>
-                <a href="#">Archival Data</a>
-                <a href="#">Data Backup</a>
-                <a href="#">Reports & Analytics</a>
-                <a href="#">Scanning</a>
-                <a href="#">OCR</a>
-                <a href="#">Calling (CTI)</a>
+                <a href="#archival">Archival Data</a>
+                <a href="#backup">Data Backup</a>
+                <a href="#reports">Reports & Analytics</a>
+                <a href="#scanning">Scanning</a>
+                <a href="#ocr">OCR</a>
+                <a href="#cti">Calling (CTI)</a>
               </div>
 
               <div className="footer-links">
                 <h4>Company</h4>
-                <a href="#">About</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact</a>
+                <a href="#blogs">About</a>
+                <a href="#company">Pricing</a>
+                <a href="#support">Contact</a>
                 <a href="#">Careers</a>
                 <a href="#">Resources</a>
               </div>
@@ -923,9 +957,28 @@ export default function App() {
                   Enterprise-ready data lifecycle solutions—secure, compliant, and natively cloud.
                 </p>
                 <div className="footer-badges">
-                  <span className="badge">SQL 2</span>
-                  <span className="badge">ISO 27001</span>
-                  <span className="badge">GDPR Ready</span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/>
+                      <path d="M9.5 12l2 2 4-4"/>
+                    </svg>
+                    SOC 2
+                  </span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <circle cx="12" cy="12" r="9"/>
+                      <path d="M8 12h8"/>
+                      <path d="M12 8v8"/>
+                    </svg>
+                    ISO 27001
+                  </span>
+                  <span className="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                      <rect x="4" y="10" width="16" height="10" rx="2"/>
+                      <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                    </svg>
+                    GDPR Ready
+                  </span>
                 </div>
                 <div className="newsletter">
                   <p>Subscribe to our newsletter</p>
@@ -938,19 +991,19 @@ export default function App() {
 
               <div className="footer-links">
                 <h4>Solutions</h4>
-                <a href="#">Archival Data</a>
-                <a href="#">Data Backup</a>
-                <a href="#">Reports & Analytics</a>
-                <a href="#">Scanning</a>
-                <a href="#">OCR</a>
-                <a href="#">Calling (CTI)</a>
+                <a href="#archival">Archival Data</a>
+                <a href="#backup">Data Backup</a>
+                <a href="#reports">Reports & Analytics</a>
+                <a href="#scanning">Scanning</a>
+                <a href="#ocr">OCR</a>
+                <a href="#cti">Calling (CTI)</a>
               </div>
 
               <div className="footer-links">
                 <h4>Company</h4>
-                <a href="#">About</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact</a>
+                <a href="#blogs">About</a>
+                <a href="#company">Pricing</a>
+                <a href="#support">Contact</a>
                 <a href="#">Careers</a>
                 <a href="#">Resources</a>
               </div>
