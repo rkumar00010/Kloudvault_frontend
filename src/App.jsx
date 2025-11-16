@@ -59,43 +59,44 @@ export default function App() {
 
   // Scroll-reveal observer for all pages
   useEffect(() => {
-    // Build a list of section selectors across pages
-    const selectors = [
-      // Home
-      'main.hero',
+    // Broader page sections + limit Home solutions to first 6 cards
+    const sectionSelectors = [
+      // Home (sections only; cards handled separately)
+      // 'main.hero',
       // '.ai-section',
       // '.dashboard-section',
       // '.testimonials-section',
-      // '.stats-section',
+      '.stats-section',
       // '.solutions-section',
+      '.solutions-header',
+      '.analytics-dashboard-section',
       // Products
       '.products-hero',
       '.products-grid',
       // '.products-cta-section',
       // Blog
+      '.values-grid',
       '.blog-hero',
       '.blog-mission',
       // '.blog-values',
-      // '.blog-team',
-      // '.blog-compliance',
+      '.blog-team',
+      '.blog-compliance',
       // '.blog-careers',
       '.values-grid',
       '.team-grid',
       '.comp-grid',
-      // '.mission-body',
       // Company
       '.company-hero',
       '.pricing-section',
-      // '.included-section',
       '.included-grid',
       '.faq-section',
-      // '.sales-cta',
       // Support
-      // '.support-resources',
-      // '.support-content',
       '.resources-grid'
     ];
-    const elements = document.querySelectorAll(selectors.join(','));
+
+    const sectionElements = Array.from(document.querySelectorAll(sectionSelectors.join(',')));
+    const sixHomeCards = Array.from(document.querySelectorAll('.solutions-grid > *')).slice(0, 6);
+    const elements = [...sectionElements, ...sixHomeCards];
     if (elements.length === 0) return;
     elements.forEach((el, idx) => {
       el.classList.add('kv-reveal');
@@ -186,7 +187,7 @@ export default function App() {
               <div className="hero-circle1 hero-circle-glow">
               </div>
               <div className="hero-ctas">
-                <button className="cta primary" onClick={() => goTo('support')}>Book a Demo →</button>
+                <button className="cta nav-demo" onClick={() => goTo('support')}>Book a Demo →</button>
                 <button className="cta secondary" onClick={() => goTo('products')}>Explore Solutions</button>
               </div>
 
@@ -575,7 +576,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('archival'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon archival">
                   {/* Archive box icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="solution-title">Archival Data</div>
                 <div className="solution-desc">Policy-driven cold storage with warm retrieval and legal holds.</div>
@@ -584,7 +585,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('backup'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon backup">
                   {/* Database icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#bfaaff" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#8b5cf6" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="solution-title">Data Backup</div>
                 <div className="solution-desc">Incremental, immutable backups with instant restore capabilities.</div>
@@ -593,7 +594,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('reports'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon analytics">
                   {/* Analytics bar chart icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#bfaaff" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#bfaaff" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#8b5cf6" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#8b5cf6" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="solution-title">Reports & Analytics</div>
                 <div className="solution-desc">Unified reporting layer with dashboards and comprehensive exports.</div>
@@ -602,7 +603,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('scanning'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon scanning">
                   {/* Scan/QR icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="solution-title">Scanning</div>
                 <div className="solution-desc">High-volume document capture with intelligent queue management.</div>
@@ -611,7 +612,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('ocr'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon ocr">
                   {/* OCR document icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="solution-title">OCR</div>
                 <div className="solution-desc">Accurate text extraction with entity detection and auto-tagging.</div>
@@ -620,7 +621,7 @@ export default function App() {
               <div className="solution-card" onClick={() => { setCurrentPage('cti'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
                 <div className="solution-icon cti">
                   {/* Phone/CTI icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#bfaaff" strokeWidth="2.2" fill="none" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#8b5cf6" strokeWidth="2.2" fill="none" /></svg>
                 </div>
                 <div className="solution-title">Calling (CTI)</div>
                 <div className="solution-desc">Click-to-call, call logging, recordings, and analytics.</div>
@@ -704,7 +705,7 @@ export default function App() {
                 Book a Demo <span className="cta-arrow">→</span>
               </button> */}
               <div className="hero-ctas">
-                <button className="cta primary" onClick={() => goTo('support')}>Book a Demo →</button>
+                <button className="cta nav-demo" onClick={() => goTo('support')}>Book a Demo →</button>
                 <button className="cta secondary" onClick={() => goTo('company')}>View Pricing</button>
               </div>
 
@@ -820,7 +821,7 @@ export default function App() {
               {/* Archival Data */}
               <div className="product-card compact">
                 <div className="solution-icon archival">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">Archival Data</div>
@@ -839,7 +840,7 @@ export default function App() {
               {/* Data Backup */}
               <div className="product-card compact">
                 <div className="solution-icon backup">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#bfaaff" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#8b5cf6" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">Data Backup</div>
@@ -858,7 +859,7 @@ export default function App() {
               {/* Reports & Analytics */}
               <div className="product-card compact">
                 <div className="solution-icon analytics">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#bfaaff" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#bfaaff" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#8b5cf6" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#8b5cf6" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">Reports & Analytics</div>
@@ -877,7 +878,7 @@ export default function App() {
               {/* Scanning */}
               <div className="product-card compact">
                 <div className="solution-icon scanning">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">Scanning</div>
@@ -896,7 +897,7 @@ export default function App() {
               {/* OCR */}
               <div className="product-card compact">
                 <div className="solution-icon ocr">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">OCR</div>
@@ -915,7 +916,7 @@ export default function App() {
               {/* Calling (CTI) */}
               <div className="product-card compact">
                 <div className="solution-icon cti">
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#bfaaff" strokeWidth="2.2" fill="none" /></svg>
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#8b5cf6" strokeWidth="2.2" fill="none" /></svg>
                 </div>
                 <div className="product-head">
                   <div className="product-title">Calling (CTI)</div>
