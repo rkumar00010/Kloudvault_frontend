@@ -102,8 +102,8 @@ export default function AnalyticsDashboard() {
             <li><span className="dot"></span><div><div className="pt">Ask Anything</div><div className="pb">Natural language queries across all modules</div></div></li>
           </ul>
           <div className="ai-actions">
-            <button className="cta primary">Explore Analytics</button>
-            <button className="cta secondary">Book A Demo</button>
+            <button className="cta primary" onClick={() => { window.location.hash = '#reports'; window.scrollTo(0, 0); }}>Explore Analytics</button>
+            <button className="cta secondary" onClick={() => { window.location.hash = '#support'; window.scrollTo(0, 0); }}>Book A Demo</button>
           </div>
         </div>
 
