@@ -4,7 +4,7 @@
   width: 100%;
   font-family: 'Inter', sans-serif;
   position: relative;
-  background: transparent;
+  background-color: #0a0f1e;
   min-height: 500px;
 }
 
@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: 400px;
+  background-color: #0a0f1e;
 }
 
 /* Left and Right Sections */
@@ -38,7 +39,7 @@
 
 /* Box Styles with Continuous Border Animation */
 .box {
-  background: linear-gradient(135deg, #0a0f1f 0%, #1a1f3f 100%);
+  background: linear-gradient(135deg, #0a0f1f 0%, #0a0f1f 100%);
   color: #ffffff;
   padding: 20px 15px;
   border-radius: 12px;
@@ -99,11 +100,11 @@
 @keyframes boxFloat {
   0%, 100% {
     transform: translateY(0);
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 5px 15px #0a0f1f;
   }
   50% {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 15px 30px #0a0f1f;
   }
 }
 
@@ -164,11 +165,11 @@
 
 @keyframes centerPulse {
   0%, 100% {
-    box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 50px #0a0f1f;
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 80px #0a0f1f;
     transform: scale(1.05);
   }
 }
@@ -434,16 +435,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  filter: blur(80px);
+  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%); */
+      /* background-color: #0a0f1e; */
+  /* filter: blur(80px); */
   z-index: 1;
   animation: energyPulse 6s ease-in-out infinite;
 }
 
-@keyframes energyPulse {
+/* @keyframes energyPulse {
   0%, 100% {
     opacity: 0.2;
     transform: translate(-50%, -50%) scale(1);
@@ -452,7 +454,7 @@
     opacity: 0.4;
     transform: translate(-50%, -50%) scale(1.1);
   }
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 900px) {
