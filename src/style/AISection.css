@@ -4,8 +4,9 @@
   width: 100%;
   font-family: 'Inter', sans-serif;
   position: relative;
-  background: transparent;
+  /* background: transparent; */
   min-height: 500px;
+   background-color: #0a0f1e;
 }
 
 .ai-container {
@@ -16,6 +17,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: 400px;
+  background-color: #0a0f1e;
 }
 
 /* Left and Right Sections */

@@ -261,6 +261,155 @@ export default function App() {
 
 
 
+
+          {/* Stats Section */}
+          <section className="stats-section">
+            <div className="stats-grid">
+              <div className="stat">
+
+                <div className="stat-value">99.9%</div>
+                <div className="stat-label">Uptime SLA</div>
+              </div>
+              <div className="stat">
+                <div className="stat-value">500+</div>
+                <div className="stat-label">Enterprise Clients</div>
+              </div>
+              <div className="stat">
+                <div className="stat-value">10PB+</div>
+                <div className="stat-label">Data Managed</div>
+              </div>
+              <div className="stat">
+                <div className="stat-value">&lt;1min</div>
+                <div className="stat-label">Average Recovery</div>
+              </div>
+            </div>
+          </section>
+
+          {/* Solutions Section */}
+          <section className="solutions-section">
+            <div className="solutions-header">
+              <div className="solutions-title">Complete Data Lifecycle Solutions</div>
+              <div className="solutions-desc">Six integrated modules to secure, manage, and unlock the value of your enterprise data.</div>
+            </div>
+            <div className="solutions-grid">
+              <div className="solution-card" onClick={() => { setCurrentPage('archival'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon archival">
+                  {/* Archive box icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
+                </div>
+                <div className="solution-title">Archival Data</div>
+                <div className="solution-desc">Policy-driven cold storage with warm retrieval and legal holds.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('archival'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+              <div className="solution-card" onClick={() => { setCurrentPage('backup'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon backup">
+                  {/* Database icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#8b5cf6" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
+                </div>
+                <div className="solution-title">Data Backup</div>
+                <div className="solution-desc">Incremental, immutable backups with instant restore capabilities.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('backup'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+              <div className="solution-card" onClick={() => { setCurrentPage('reports'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon analytics">
+                  {/* Analytics bar chart icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#8b5cf6" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#8b5cf6" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#8b5cf6" /></svg>
+                </div>
+                <div className="solution-title">Reports & Analytics</div>
+                <div className="solution-desc">Unified reporting layer with dashboards and comprehensive exports.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('reports'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+              <div className="solution-card" onClick={() => { setCurrentPage('scanning'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon scanning">
+                  {/* Scan/QR icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
+                </div>
+                <div className="solution-title">Scanning</div>
+                <div className="solution-desc">High-volume document capture with intelligent queue management.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('scanning'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+              <div className="solution-card" onClick={() => { setCurrentPage('ocr'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon ocr">
+                  {/* OCR document icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
+                </div>
+                <div className="solution-title">OCR</div>
+                <div className="solution-desc">Accurate text extraction with entity detection and auto-tagging.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('ocr'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+              <div className="solution-card" onClick={() => { setCurrentPage('cti'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
+                <div className="solution-icon cti">
+                  {/* Phone/CTI icon */}
+                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#8b5cf6" strokeWidth="2.2" fill="none" /></svg>
+                </div>
+                <div className="solution-title">Calling (CTI)</div>
+                <div className="solution-desc">Click-to-call, call logging, recordings, and analytics.</div>
+                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('cti'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Analytics Dashboard Section */}
+          <section className="analytics-dashboard-section">
+            
+            <AnalyticsDashboard />
+          </section>
+
+
+          {/* Our Values Section (before footer) */}
+          <section className="blog-values">
+            <div className="values-header">
+              <div className="values-kicker">Why Enterprise Leaders Choose Kloudvault</div>
+              <h3 className="values-title">Built for scale, security, and compliance</h3>
+            </div>
+            <div className="values-grid">
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Shield icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <div className="value-title">Enterprise Security</div>
+                <p className="value-desc">
+                  SOC 2, ISO 27001, GDPR-ready compliance built from day one.
+                </p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Bolt icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z" />
+                  </svg>
+                </div>
+                <div className="value-title">Lightning Fast</div>
+                <p className="value-desc">
+                  Instant data retrieval and real-time analytics across all modules.
+                </p>
+              </div>
+
+              <div className="value-card">
+                <div className="value-icon">
+                  {/* Users icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div className="value-title">Cloud Native</div>
+                <p className="value-desc">
+                  Scale effortlessly without infrastructure overhead or complexity.
+                </p>
+              </div>
+            </div>
+          </section>
+
+       
           <section className="testimonials-section">
             <h2 className="testimonials-title">
               Trusted by Thousands<br />
@@ -571,155 +720,6 @@ export default function App() {
               </div>
             </div>
           </section>
-
-          {/* Stats Section */}
-          <section className="stats-section">
-            <div className="stats-grid">
-              <div className="stat">
-
-                <div className="stat-value">99.9%</div>
-                <div className="stat-label">Uptime SLA</div>
-              </div>
-              <div className="stat">
-                <div className="stat-value">500+</div>
-                <div className="stat-label">Enterprise Clients</div>
-              </div>
-              <div className="stat">
-                <div className="stat-value">10PB+</div>
-                <div className="stat-label">Data Managed</div>
-              </div>
-              <div className="stat">
-                <div className="stat-value">&lt;1min</div>
-                <div className="stat-label">Average Recovery</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Solutions Section */}
-          <section className="solutions-section">
-            <div className="solutions-header">
-              <div className="solutions-title">Complete Data Lifecycle Solutions</div>
-              <div className="solutions-desc">Six integrated modules to secure, manage, and unlock the value of your enterprise data.</div>
-            </div>
-            <div className="solutions-grid">
-              <div className="solution-card" onClick={() => { setCurrentPage('archival'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon archival">
-                  {/* Archive box icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
-                </div>
-                <div className="solution-title">Archival Data</div>
-                <div className="solution-desc">Policy-driven cold storage with warm retrieval and legal holds.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('archival'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('backup'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon backup">
-                  {/* Database icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#8b5cf6" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
-                </div>
-                <div className="solution-title">Data Backup</div>
-                <div className="solution-desc">Incremental, immutable backups with instant restore capabilities.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('backup'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('reports'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon analytics">
-                  {/* Analytics bar chart icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#8b5cf6" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#8b5cf6" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#8b5cf6" /></svg>
-                </div>
-                <div className="solution-title">Reports & Analytics</div>
-                <div className="solution-desc">Unified reporting layer with dashboards and comprehensive exports.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('reports'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('scanning'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon scanning">
-                  {/* Scan/QR icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
-                </div>
-                <div className="solution-title">Scanning</div>
-                <div className="solution-desc">High-volume document capture with intelligent queue management.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('scanning'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('ocr'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon ocr">
-                  {/* OCR document icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
-                </div>
-                <div className="solution-title">OCR</div>
-                <div className="solution-desc">Accurate text extraction with entity detection and auto-tagging.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('ocr'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-              <div className="solution-card" onClick={() => { setCurrentPage('cti'); window.scrollTo(0, 0); }} style={{ cursor: 'pointer' }}>
-                <div className="solution-icon cti">
-                  {/* Phone/CTI icon */}
-                  <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#8b5cf6" strokeWidth="2.2" fill="none" /></svg>
-                </div>
-                <div className="solution-title">Calling (CTI)</div>
-                <div className="solution-desc">Click-to-call, call logging, recordings, and analytics.</div>
-                <a className="solution-link" href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('cti'); window.scrollTo(0, 0); }}>Learn More &rarr;</a>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Analytics Dashboard Section */}
-          <section className="analytics-dashboard-section">
-            
-            <AnalyticsDashboard />
-          </section>
-
-
-          {/* Our Values Section (before footer) */}
-          <section className="blog-values">
-            <div className="values-header">
-              <div className="values-kicker">Why Enterprise Leaders Choose Kloudvault</div>
-              <h3 className="values-title">Built for scale, security, and compliance</h3>
-            </div>
-            <div className="values-grid">
-              <div className="value-card">
-                <div className="value-icon">
-                  {/* Shield icon */}
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                </div>
-                <div className="value-title">Enterprise Security</div>
-                <p className="value-desc">
-                  SOC 2, ISO 27001, GDPR-ready compliance built from day one.
-                </p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-icon">
-                  {/* Bolt icon */}
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8Z" />
-                  </svg>
-                </div>
-                <div className="value-title">Lightning Fast</div>
-                <p className="value-desc">
-                  Instant data retrieval and real-time analytics across all modules.
-                </p>
-              </div>
-
-              <div className="value-card">
-                <div className="value-icon">
-                  {/* Users icon */}
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <div className="value-title">Cloud Native</div>
-                <p className="value-desc">
-                  Scale effortlessly without infrastructure overhead or complexity.
-                </p>
-              </div>
-            </div>
-          </section>
-
-       
 
           {/* CTA Section */}
           <section className="products-cta-section">
