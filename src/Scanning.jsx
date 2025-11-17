@@ -95,7 +95,7 @@ export default function Scanning(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?149:39}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?149:119}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
                   <li>1,000 pages/month</li>
                   <li>Basic quality control</li>
@@ -106,7 +106,7 @@ export default function Scanning(){
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:159}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?599:479}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
                   <li>50,000 pages/month</li>
                   <li>Advanced quality control</li>

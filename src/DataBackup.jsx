@@ -96,7 +96,7 @@ export default function Archival(){
                 <div className="plan-name">Starter</div>
                 <div className="plan-price">
                   <span className="currency">$</span>
-                  <span className="amount">{billing==='monthly'?199:239}</span>
+                  <span className="amount">{billing==='monthly'?199:159}</span>
                   <span className="per">/month</span>
                 </div>
                 <div className="plan-included">500GB included</div>
