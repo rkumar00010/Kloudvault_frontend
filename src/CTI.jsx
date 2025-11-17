@@ -96,7 +96,7 @@ Compliance-ready recording retention</span></div>
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?25:39}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?25:20}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
                   <li>Click-to-call</li>
                   <li>Basic analytics</li>
@@ -107,7 +107,7 @@ Compliance-ready recording retention</span></div>
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?45:159}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?45:36}</span><span className="per">/month</span></div>
                 <ul className="plan-list">
                   <li>Call recording</li>
                   <li>CRM integration</li>

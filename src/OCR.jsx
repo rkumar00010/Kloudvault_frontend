@@ -107,7 +107,7 @@ export default function OCR(){
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?499:239}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?499:399}</span><span className="per">/month</span></div>
                 {/* <div className="plan-included">10 Dashboards</div> */}
                 <ul className="plan-list">
                   <li>25,000 pages/month</li>

@@ -11,7 +11,7 @@ export default function Products({ goTo }){
   }
   return (
     <div className="products-page">
-      <div className='product-space' style={{ display: "flex", width: "300px", height: "50px" }}></div>
+      <div className='product-space' style={{ display: "flex", width: "100%", height: "50px" }}></div>
       <section className="products-hero">
         <div className="products-hero-content">
           {/* <div className="products-arrow-up">↑</div> */}

@@ -93,7 +93,25 @@ export default function Company() {
               <li>SOC 2 compliance</li>
             </ul>
             <div className="plan-cta">
-              <a href="#" className="btn primary">Start Free Trial</a>
+              <a
+                href="#"
+                className="btn primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.hash === '#support') {
+                    const el = document.querySelector('.support-form-section');
+                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.hash = '#support';
+                    setTimeout(() => {
+                      const el = document.querySelector('.support-form-section');
+                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                  }
+                }}
+              >
+                Start Free Trial
+              </a>
             </div>
           </div>
 
@@ -123,7 +141,25 @@ export default function Company() {
               <li>ISO 27001 compliance</li>
             </ul>
             <div className="plan-cta">
-              <a href="#" className="btn gradient">Start Free Trial</a>
+              <a
+                href="#"
+                className="btn gradient"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.hash === '#support') {
+                    const el = document.querySelector('.support-form-section');
+                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.hash = '#support';
+                    setTimeout(() => {
+                      const el = document.querySelector('.support-form-section');
+                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                  }
+                }}
+              >
+                Start Free Trial
+              </a>
             </div>
           </div>
 
@@ -148,7 +184,25 @@ export default function Company() {
               <li>Volume discounts</li>
             </ul>
             <div className="plan-cta">
-              <a href="#" className="btn outline">Contact Sales</a>
+              <a
+                href="#"
+                className="btn outline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.hash === '#support') {
+                    const el = document.querySelector('.support-form-section');
+                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.hash = '#support';
+                    setTimeout(() => {
+                      const el = document.querySelector('.support-form-section');
+                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                  }
+                }}
+              >
+                Contact Sales
+              </a>
             </div>
           </div>
         </div>
@@ -213,7 +267,20 @@ export default function Company() {
         <div className="sales-inner">
           <div className="sales-kicker">Still Have Questions?</div>
           <h3 className="sales-title">Talk to our sales team to find the perfect plan for your organization.</h3>
-          <a href="#" className="sales-btn">Contact Sales</a>
+          <a
+            href="#"
+            className="sales-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.hash = '#support';
+              setTimeout(() => {
+                const el = document.querySelector('.support-form-section');
+                el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 200);
+            }}
+          >
+            Contact Sales
+          </a>
         </div>
       </section>
 

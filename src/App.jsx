@@ -19,6 +19,7 @@ export default function App() {
 
   const [rotation, setRotation] = useState(15);
   const [currentPage, setCurrentPage] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const applyHash = () => {
@@ -38,6 +39,7 @@ export default function App() {
       setCurrentPage(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    setMenuOpen(false);
   };
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export default function App() {
     e.preventDefault();
     setCurrentPage(page);
     window.scrollTo(0, 0);
+    setMenuOpen(false);
   };
 
   // Scroll-reveal observer for all pages
@@ -168,9 +171,35 @@ export default function App() {
         </nav>
 
         <div className="nav-right">
-          <a className="talk" href="#">Talk to Sales</a>
-          <button className="demo">Book a Demo</button>
+          <a className="talk" href="#" onClick={(e) => handleNavClick(e, 'support')}>Talk to Sales</a>
+          <button className="demo" onClick={() => goTo('support')}>Book a Demo</button>
         </div>
+
+        {/* Mobile CTA visible on <=900px */}
+        <button className="demo nav-mobile-cta" onClick={() => goTo('support')}>Book a Demo</button>
+
+        {/* Hamburger */}
+        <button
+          className="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded={menuOpen ? 'true' : 'false'}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
+        </button>
+
+        {menuOpen && (
+          <div className="mobile-menu" role="dialog" aria-modal="true">
+            <a href="#" onClick={(e) => handleNavClick(e, 'home')} className={currentPage === 'home' ? 'active' : ''}>Home</a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'products')} className={currentPage === 'products' ? 'active' : ''}>Products</a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'support')} className={currentPage === 'support' ? 'active' : ''}>Support</a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'blogs')} className={currentPage === 'blogs' ? 'active' : ''}>Blogs</a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'company')} className={currentPage === 'company' ? 'active' : ''}>Company</a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'support')}>Talk to Sales</a>
+          </div>
+        )}
       </header>
 
       {currentPage === 'home' ? (

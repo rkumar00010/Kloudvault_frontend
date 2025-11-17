@@ -95,7 +95,7 @@ export default function ReportsAnalytics(){
             <div className="plans">
               <div className="plan">
                 <div className="plan-name">Starter</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:79}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?199:159}</span><span className="per">/month</span></div>
                 {/* <div className="plan-included">1 Dashboard</div> */}
                 <ul className="plan-list">
                   <li>Basic dashboards</li>
@@ -107,7 +107,7 @@ export default function ReportsAnalytics(){
               <div className="plan featured">
                 <div className="badge">Most Popular</div>
                 <div className="plan-name">Growth</div>
-                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?699:239}</span><span className="per">/month</span></div>
+                <div className="plan-price"><span className="currency">$</span><span className="amount">{billing==='monthly'?699:559}</span><span className="per">/month</span></div>
                 {/* <div className="plan-included">10 Dashboards</div> */}
                 <ul className="plan-list">
                   <li>Unlimited custom reports</li>
