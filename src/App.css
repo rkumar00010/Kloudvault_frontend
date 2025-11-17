@@ -1540,7 +1540,8 @@ textarea:focus-visible {
 }
 
 .testimonials-container {
-  max-width: 1260px;
+
+  max-width: 1245px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -4176,10 +4177,6 @@ textarea:focus-visible {
     gap: 8px;
   }
 
-  .newsletter-input input,
-  .newsletter-input button {
-    /* width: 100%; */
-  }
 
   .products-banner-title {
     font-size: 26px;
