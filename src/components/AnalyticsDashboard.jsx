@@ -112,7 +112,7 @@ export default function AnalyticsDashboard() {
             {metrics.map((m,i)=>{
               const Icon = m.icon; const TrendIcon = m.trend==='up'?TrendingUp:TrendingDown;
               return (
-                <motion.div key={i} initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:i*0.08}} className="kpi-card">
+                <motion.div key={i} initial={{opacity:1, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:i*0.08}} className="kpi-card">
                   <div className="kpi-top">
                     <div className="kpi-ico" style={{backgroundColor: m.color+"20"}}>
                       <Icon style={{color:m.color}} width={16} height={16} />
@@ -130,7 +130,7 @@ export default function AnalyticsDashboard() {
           </div>
 
           <div className="adash2-panels">
-            <motion.div initial={{opacity:0, x:-20}} whileInView={{opacity:1, x:0}} viewport={{once:true}} transition={{delay:0.2}} className="panel">
+            <motion.div initial={{opacity:1, x:-20}} whileInView={{opacity:1, x:0}} viewport={{once:true}} transition={{delay:0.2}} className="panel">
               <div className="panel-title">Performance Trends</div>
               <div className="panel-sub">Monthly data operations volume</div>
               <ResponsiveContainer width="100%" height={240}>
@@ -149,19 +149,19 @@ export default function AnalyticsDashboard() {
                   <XAxis dataKey="name" stroke="#788199" style={{fontSize:'12px'}} />
                   <YAxis stroke="#788199" style={{fontSize:'12px'}} />
                   <Tooltip contentStyle={{ backgroundColor: '#0f1320', border: '1px solid #8B5CF620', borderRadius: '8px', color: '#fff' }} />
-                  <Area type="monotone" dataKey="value" stroke="#8B5CF6" strokeWidth={2} fill="url(#p1)" animationDuration={1000} />
-                  <Area type="monotone" dataKey="recovery" stroke="#D4AF37" strokeWidth={2} fill="url(#p2)" animationDuration={1000} />
+                  <Area type="monotone" dataKey="value" stroke="#8B5CF6" strokeWidth={2} fill="url(#p1)" isAnimationActive={false} />
+                  <Area type="monotone" dataKey="recovery" stroke="#D4AF37" strokeWidth={2} fill="url(#p2)" isAnimationActive={false} />
                 </AreaChart>
               </ResponsiveContainer>
             </motion.div>
 
-            <motion.div initial={{opacity:0, x:20}} whileInView={{opacity:1, x:0}} viewport={{once:true}} transition={{delay:0.25}} className="panel">
+            <motion.div initial={{opacity:1, x:20}} whileInView={{opacity:1, x:0}} viewport={{once:true}} transition={{delay:0.25}} className="panel">
               <div className="panel-title">Storage Distribution</div>
               <div className="panel-sub">Data allocation by type</div>
               <div className="panel-center">
                 <ResponsiveContainer width="100%" height={240}>
                   <PieChart>
-                    <Pie data={storageData} cx="50%" cy="50%" innerRadius={58} outerRadius={86} paddingAngle={5} dataKey="value" animationDuration={1000}>
+                    <Pie data={storageData} cx="50%" cy="50%" innerRadius={58} outerRadius={86} paddingAngle={5} dataKey="value" isAnimationActive={false}>
                       {storageData.map((e,idx)=> <Cell key={idx} fill={e.color} />)}
                     </Pie>
                     <Tooltip contentStyle={{ backgroundColor: '#0f1320', border: '1px solid #8B5CF620', borderRadius: '8px', color: '#fff' }} />
@@ -175,7 +175,7 @@ export default function AnalyticsDashboard() {
               </div>
             </motion.div>
 
-            <motion.div initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:0.3}} className="panel wide">
+            <motion.div initial={{opacity:1, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:0.3}} className="panel wide">
               <div className="panel-title">Daily Activity Timeline</div>
               <div className="panel-sub">Real-time operations across modules</div>
               <ResponsiveContainer width="100%" height={240}>
@@ -184,9 +184,9 @@ export default function AnalyticsDashboard() {
                   <XAxis dataKey="time" stroke="#788199" style={{fontSize:'12px'}} />
                   <YAxis stroke="#788199" style={{fontSize:'12px'}} />
                   <Tooltip contentStyle={{ backgroundColor: '#0f1320', border: '1px solid #8B5CF620', borderRadius: '8px', color: '#fff' }} />
-                  <Bar dataKey="scans" fill="#8B5CF6" radius={[8,8,0,0]} animationDuration={1000} />
-                  <Bar dataKey="ocr" fill="#D4AF37" radius={[8,8,0,0]} animationDuration={1000} />
-                  <Bar dataKey="calls" fill="#7C4DFF" radius={[8,8,0,0]} animationDuration={1000} />
+                  <Bar dataKey="scans" fill="#8B5CF6" radius={[8,8,0,0]} isAnimationActive={false} />
+                  <Bar dataKey="ocr" fill="#D4AF37" radius={[8,8,0,0]} isAnimationActive={false} />
+                  <Bar dataKey="calls" fill="#7C4DFF" radius={[8,8,0,0]} isAnimationActive={false} />
                 </BarChart>
               </ResponsiveContainer>
               <div className="legend legend-inline">
