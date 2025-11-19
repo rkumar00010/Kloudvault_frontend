@@ -25,7 +25,7 @@
 .right-section {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
   position: relative;
   z-index: 10;
 }
@@ -430,29 +430,31 @@
 @media (max-width: 900px) {
   .ai-container {
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
+    max-width: 500px;
+    min-height: 360px;
   }
   
   .left-section,
   .right-section {
-    gap: 20px;
+    gap: 16px;
   }
   
   .box {
-    width: 140px;
-    padding: 15px 10px;
-    font-size: 12px;
+    width: 130px;
+    padding: 12px 10px;
+    font-size: 11px;
   }
   
   .ai-box {
-    padding: 30px 40px;
-    font-size: 24px;
+    padding: 24px 32px;
+    font-size: 20px;
     margin: 20px 0;
   }
   
   .ai-energy-field {
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
   }
   
   /* Adjust animations for mobile */
@@ -464,22 +466,34 @@
 
 @media (max-width: 600px) {
   .ai-section {
-    padding: 40px 15px;
+    padding: 32px 12px;
   }
   
   .left-section,
   .right-section {
-    gap: 15px;
+    gap: 12px;
   }
   
   .box {
-    width: 120px;
-    padding: 12px 8px;
-    font-size: 11px;
+    width: 110px;
+    padding: 10px 8px;
+    font-size: 10px;
   }
   
   .ai-box {
-    padding: 25px 35px;
-    font-size: 20px;
+    padding: 20px 28px;
+    font-size: 18px;
+  }
+}
+
+/* Extra-small screens: scale entire diagram so it fits like the reference image */
+@media (max-width: 480px) {
+  .ai-section {
+    overflow: hidden;
+  }
+
+  .ai-container {
+    transform: scale(0.75);
+    transform-origin: center center;
   }
 }

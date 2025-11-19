@@ -279,7 +279,8 @@
   }
 
   .adash2-panels {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    padding:0px;
   }
 }
 
