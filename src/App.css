@@ -400,6 +400,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
   border-bottom: 1px solid #101524;
+  border-top: 1px solid #101524;
 }
 
 .stats-grid {
@@ -2727,7 +2728,7 @@ textarea:focus-visible {
   padding: 80px 30px 80px 30px;
   text-align: center;
   background: #0d1220;
-  width:100%;
+  /* width:100%; */
 }
 
 .values-header {
