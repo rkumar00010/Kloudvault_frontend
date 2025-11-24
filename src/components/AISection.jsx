@@ -75,6 +75,12 @@ const AISection = () => {
       <div className="ai-energy-field"></div>
       <div className="ai-connections" ref={connectionsRef}></div>
       
+      {/* Added Heading and Subtitle */}
+      <div className="ai-header">
+        <h2 className="ai-title">Smarter Analytics, Powered by AI</h2>
+        <p className="ai-subtitle">Unlock deep insights and performance trends with real-time</p>
+      </div>
+
       <div className="ai-container">
         <div className="left-section">
           <div className="box" data-box="left-1">Instant Insights</div>

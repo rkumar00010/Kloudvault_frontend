@@ -217,37 +217,37 @@
 /* Different animation paths for each dot */
 .dot-0 {
   animation: travelToLeft1 4s linear infinite;
-  top: 36.5%;
+  top: 59.50%;
   left: 50%;
 }
 
 .dot-1 {
   animation: travelToLeft2 4s linear infinite;
-  top: 50%;
+  top: 70.50%;
   left: 50%;
 }
 
 .dot-2 {
   animation: travelToLeft3 4s linear infinite;
-  top: 43%;
+  top: 65%;
   left: 50%;
 }
 
 .dot-3 {
   animation: travelToRight1 4s linear infinite;
-  top: 36.5%;
+  top: 59.50%;
   right: 50%;
 }
 
 .dot-4 {
   animation: travelToRight2 4s linear infinite;
-  top: 50%;
+  top: 70.50%;
   right: 50%;
 }
 
 .dot-5 {
   animation: travelToRight3 4s linear infinite;
-  top: 43%;
+  top: 65%;
   right: 50%;
 }
 
@@ -775,4 +775,69 @@
     width: 260px;
     height: 260px;
   }
+}
+
+/* AI Section with Working Animated Dots */
+.ai-section {
+  /* padding: 60px 20px; */
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  background-color: #0a0f1e;
+  min-height: 500px;
+}
+
+/* Added Header Styles */
+.ai-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.ai-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ffffff, #a0a0c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-subtitle {
+  color: #a0a0c0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+
+/* Responsive Design for Header */
+@media (max-width: 900px) {
+  .ai-title {
+    font-size: 2rem;
+  }
+  
+  .ai-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  /* ... rest of your existing responsive CSS ... */
+}
+
+@media (max-width: 600px) {
+  .ai-title {
+    font-size: 1.8rem;
+  }
+  
+  .ai-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  /* ... rest of your existing responsive CSS ... */
 }
