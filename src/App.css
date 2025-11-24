@@ -1068,7 +1068,7 @@ textarea:focus-visible {
 /* AI diagram with background image and cards */
 .ai-container {
   position: relative;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   margin: 0 auto;
   padding: 25px 16px 10px;
   background: url('/AI.png') center top/contain no-repeat;
@@ -3970,7 +3970,7 @@ textarea:focus-visible {
 
 /* Scroll indicator below CTAs */
 .scroll-indicator {
-  margin: 26px auto 0;
+  margin: 56px auto 0;
   width: 21px;
   height: 40px;
   border-radius: 20px;
