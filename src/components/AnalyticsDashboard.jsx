@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -25,6 +26,7 @@ import {
 import './Analytic.css'
 
 export default function AnalyticsDashboard() {
+  const navigate = useNavigate();
   const [tick, setTick] = useState(0)
   useEffect(() => { const id = setInterval(()=>setTick(t=>t+1), 3000); return ()=>clearInterval(id) }, [])
 
@@ -102,8 +104,8 @@ export default function AnalyticsDashboard() {
             <li><span className="dot"></span><div><div className="pt">Ask Anything</div><div className="pb">Natural language queries across all modules</div></div></li>
           </ul>
           <div className="ai-actions">
-            <button className="cta primary" onClick={() => { window.location.hash = '#reports'; window.scrollTo(0, 0); }}>Explore Analytics</button>
-            <button className="cta secondary" onClick={() => { window.location.hash = '#support'; window.scrollTo(0, 0); }}>Book A Demo</button>
+            <button className="cta primary" onClick={() => { navigate('/reports'); window.scrollTo(0, 0); }}>Explore Analytics</button>
+            <button className="cta secondary" onClick={() => { navigate('/support'); window.scrollTo(0, 0); }}>Book A Demo</button>
           </div>
         </div>
 

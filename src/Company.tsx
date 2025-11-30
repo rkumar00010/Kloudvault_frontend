@@ -1,6 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Company() {
+  const navigate = useNavigate();
+
+  // Scroll-reveal observer
+  useEffect(() => {
+    const sectionSelectors = [
+      '.company-hero',
+      '.pricing-section',
+      '.included-grid',
+      '.faq-section',
+    ]
+
+    const sectionElements = Array.from(document.querySelectorAll(sectionSelectors.join(',')))
+    const elements = [...sectionElements]
+    if (elements.length === 0) return
+    elements.forEach((el, idx) => {
+      el.classList.add('kv-reveal')
+      if (el instanceof HTMLElement) {
+        el.style.transitionDelay = `${Math.min(idx * 70, 700)}ms`
+      }
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    return () => {
+      observer.disconnect()
+      elements.forEach((el) => {
+        el.classList.remove('is-revealed')
+        if (el instanceof HTMLElement) {
+          el.style.transitionDelay = ''
+        }
+      })
+    }
+  }, [])
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly');
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const faqs = [
@@ -96,19 +142,14 @@ export default function Company() {
               <a
                 href="#"
                 className="btn primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.hash === '#support') {
-                    const el = document.querySelector('.support-form-section');
-                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  } else {
-                    window.location.hash = '#support';
-                    setTimeout(() => {
-                      const el = document.querySelector('.support-form-section');
-                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 200);
-                  }
-                }}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/support');
+              setTimeout(() => {
+                const el = document.querySelector('.support-form-section');
+                el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 200);
+            }}
               >
                 Start Free Trial
               </a>
@@ -144,19 +185,14 @@ export default function Company() {
               <a
                 href="#"
                 className="btn gradient"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.hash === '#support') {
-                    const el = document.querySelector('.support-form-section');
-                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  } else {
-                    window.location.hash = '#support';
-                    setTimeout(() => {
-                      const el = document.querySelector('.support-form-section');
-                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 200);
-                  }
-                }}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/support');
+              setTimeout(() => {
+                const el = document.querySelector('.support-form-section');
+                el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 200);
+            }}
               >
                 Start Free Trial
               </a>
@@ -187,19 +223,14 @@ export default function Company() {
               <a
                 href="#"
                 className="btn outline"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.hash === '#support') {
-                    const el = document.querySelector('.support-form-section');
-                    el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  } else {
-                    window.location.hash = '#support';
-                    setTimeout(() => {
-                      const el = document.querySelector('.support-form-section');
-                      el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 200);
-                  }
-                }}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/support');
+              setTimeout(() => {
+                const el = document.querySelector('.support-form-section');
+                el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 200);
+            }}
               >
                 Contact Sales
               </a>
@@ -272,7 +303,7 @@ export default function Company() {
             className="sales-btn"
             onClick={(e) => {
               e.preventDefault();
-              window.location.hash = '#support';
+              navigate('/support');
               setTimeout(() => {
                 const el = document.querySelector('.support-form-section');
                 el && (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -329,19 +360,19 @@ export default function Company() {
 
               <div className="footer-links">
                 <h4>Solutions</h4>
-                <a href="#">Archival Data</a>
-                <a href="#">Data Backup</a>
-                <a href="#">Reports & Analytics</a>
-                <a href="#">Scanning</a>
-                <a href="#">OCR</a>
-                <a href="#">Calling (CTI)</a>
+                <a href="/archival" onClick={(e) => { e.preventDefault(); navigate('/archival'); }}>Archival Data</a>
+                <a href="/backup" onClick={(e) => { e.preventDefault(); navigate('/backup'); }}>Data Backup</a>
+                <a href="/reports" onClick={(e) => { e.preventDefault(); navigate('/reports'); }}>Reports & Analytics</a>
+                <a href="/scanning" onClick={(e) => { e.preventDefault(); navigate('/scanning'); }}>Scanning</a>
+                <a href="/ocr" onClick={(e) => { e.preventDefault(); navigate('/ocr'); }}>OCR</a>
+                <a href="/cti" onClick={(e) => { e.preventDefault(); navigate('/cti'); }}>Calling (CTI)</a>
               </div>
 
               <div className="footer-links">
                 <h4>Company</h4>
-                <a href="#">About</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact</a>
+                <a href="/blogs" onClick={(e) => { e.preventDefault(); navigate('/blogs'); }}>About</a>
+                <a href="/company" onClick={(e) => { e.preventDefault(); navigate('/company'); }}>Pricing</a>
+                <a href="/support" onClick={(e) => { e.preventDefault(); navigate('/support'); }}>Contact</a>
                 <a href="#">Careers</a>
                 <a href="#">Resources</a>
               </div>

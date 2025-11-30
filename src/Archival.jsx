@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './archival.css'
 
 export default function Archival(){
+  const navigate = useNavigate()
   const [tab, setTab] = useState('overview')
   const [openFAQ, setOpenFAQ] = useState(null)
   const [billing, setBilling] = useState('monthly') // 'monthly' | 'yearly'
@@ -231,19 +233,19 @@ export default function Archival(){
 
               <div className="footer-links">
                 <h4>Solutions</h4>
-                <a href="#archival">Archival Data</a>
-                <a href="#backup">Data Backup</a>
-                <a href="#reports">Reports & Analytics</a>
-                <a href="#scanning">Scanning</a>
-                <a href="#ocr">OCR</a>
-                <a href="#cti">Calling (CTI)</a>
+                <a href="/archival" onClick={(e) => { e.preventDefault(); navigate('/archival'); }}>Archival Data</a>
+                <a href="/backup" onClick={(e) => { e.preventDefault(); navigate('/backup'); }}>Data Backup</a>
+                <a href="/reports" onClick={(e) => { e.preventDefault(); navigate('/reports'); }}>Reports & Analytics</a>
+                <a href="/scanning" onClick={(e) => { e.preventDefault(); navigate('/scanning'); }}>Scanning</a>
+                <a href="/ocr" onClick={(e) => { e.preventDefault(); navigate('/ocr'); }}>OCR</a>
+                <a href="/cti" onClick={(e) => { e.preventDefault(); navigate('/cti'); }}>Calling (CTI)</a>
               </div>
 
               <div className="footer-links">
                 <h4>Company</h4>
-                <a href="#blogs">About</a>
-                <a href="#company">Pricing</a>
-                <a href="#support">Contact</a>
+                <a href="/blogs" onClick={(e) => { e.preventDefault(); navigate('/blogs'); }}>About</a>
+                <a href="/company" onClick={(e) => { e.preventDefault(); navigate('/company'); }}>Pricing</a>
+                <a href="/support" onClick={(e) => { e.preventDefault(); navigate('/support'); }}>Contact</a>
                 <a href="#">Careers</a>
                 <a href="#">Resources</a>
               </div>

@@ -1,6 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Support() {
+  const navigate = useNavigate();
+
+  // Scroll-reveal observer
+  useEffect(() => {
+    const sectionSelectors = [
+      '.resources-grid',
+    ]
+
+    const sectionElements = Array.from(document.querySelectorAll(sectionSelectors.join(',')))
+    const elements = [...sectionElements]
+    if (elements.length === 0) return
+    elements.forEach((el, idx) => {
+      el.classList.add('kv-reveal')
+      if (el instanceof HTMLElement) {
+        el.style.transitionDelay = `${Math.min(idx * 70, 700)}ms`
+      }
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    return () => {
+      observer.disconnect()
+      elements.forEach((el) => {
+        el.classList.remove('is-revealed')
+        if (el instanceof HTMLElement) {
+          el.style.transitionDelay = ''
+        }
+      })
+    }
+  }, [])
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -287,19 +330,19 @@ export default function Support() {
 
               <div className="footer-links">
                 <h4>Solutions</h4>
-                <a href="#archival">Archival Data</a>
-                <a href="#backup">Data Backup</a>
-                <a href="#reports">Reports & Analytics</a>
-                <a href="#scanning">Scanning</a>
-                <a href="#ocr">OCR</a>
-                <a href="#cti">Calling (CTI)</a>
+                <a href="/archival" onClick={(e) => { e.preventDefault(); navigate('/archival'); }}>Archival Data</a>
+                <a href="/backup" onClick={(e) => { e.preventDefault(); navigate('/backup'); }}>Data Backup</a>
+                <a href="/reports" onClick={(e) => { e.preventDefault(); navigate('/reports'); }}>Reports & Analytics</a>
+                <a href="/scanning" onClick={(e) => { e.preventDefault(); navigate('/scanning'); }}>Scanning</a>
+                <a href="/ocr" onClick={(e) => { e.preventDefault(); navigate('/ocr'); }}>OCR</a>
+                <a href="/cti" onClick={(e) => { e.preventDefault(); navigate('/cti'); }}>Calling (CTI)</a>
               </div>
 
               <div className="footer-links">
                 <h4>Company</h4>
-                <a href="#blogs">About</a>
-                <a href="#company">Pricing</a>
-                <a href="#support">Contact</a>
+                <a href="/blogs" onClick={(e) => { e.preventDefault(); navigate('/blogs'); }}>About</a>
+                <a href="/company" onClick={(e) => { e.preventDefault(); navigate('/company'); }}>Pricing</a>
+                <a href="/support" onClick={(e) => { e.preventDefault(); navigate('/support'); }}>Contact</a>
                 <a href="#">Careers</a>
                 <a href="#">Resources</a>
               </div>

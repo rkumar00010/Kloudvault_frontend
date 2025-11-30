@@ -1,20 +1,59 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './App.css'
 
-export default function Products({ goTo }){
-  const handleLearn = (e, page) => {
-    e.preventDefault()
-    if (typeof goTo === 'function') {
-      goTo(page)
-    } else {
-      window.scrollTo(0, 0)
-    }
+export default function Products() {
+  const navigate = useNavigate()
+
+  const goTo = (path) => {
+    navigate(path)
+    window.scrollTo(0, 0)
   }
+
+  // Scroll-reveal observer
+  useEffect(() => {
+    const sectionSelectors = [
+      '.products-hero',
+      '.products-grid',
+    ]
+
+    const sectionElements = Array.from(document.querySelectorAll(sectionSelectors.join(',')))
+    const productCards = Array.from(document.querySelectorAll('.products-grid > *'))
+    const elements = [...sectionElements, ...productCards]
+    if (elements.length === 0) return
+    elements.forEach((el, idx) => {
+      el.classList.add('kv-reveal')
+      el.style.transitionDelay = `${Math.min(idx * 70, 700)}ms`
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    return () => {
+      observer.disconnect()
+      elements.forEach((el) => {
+        el.classList.remove('is-revealed')
+        el.style.transitionDelay = ''
+      })
+    }
+  }, [])
+
   return (
     <div className="products-page">
-      <div className='product-space' style={{ display: "flex", width: "100%", height: "50px" }}></div>
+      <div className='product-space' style={{ display: "flex", width: "300px", height: "50px" }}></div>
       <section className="products-hero">
         <div className="products-hero-content">
-          {/* <div className="products-arrow-up">↑</div> */}
           <h1 className="products-banner-title">
             Complete Data Lifecycle <span className="products-banner-accent">Solutions</span>
           </h1>
@@ -27,14 +66,12 @@ export default function Products({ goTo }){
       {/* Solutions Section */}
       <section className="solutions-section">
         <div className="solutions-header">
-          {/* <div className="solutions-title">Complete Data Lifecycle Solutions</div> */}
-          {/* <div className="solutions-desc">Six integrated modules to secure, manage, and unlock the value of your enterprise data.</div> */}
         </div>
         <div className="products-grid">
           {/* Archival Data */}
           <div className="product-card compact">
             <div className="solution-icon archival">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="6" y="10" width="26" height="18" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="10" y="16" width="18" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="21" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">Archival Data</div>
@@ -47,13 +84,13 @@ export default function Products({ goTo }){
               <li>Instant retrieval</li>
               <li>Policy-based retention</li>
             </ul>
-            <a className="product-link" href="#" onClick={(e)=>handleLearn(e,'archival')}>Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e) => { e.preventDefault(); goTo('/archival'); }}>Learn More <span>→</span></a>
           </div>
 
           {/* Data Backup */}
           <div className="product-card compact">
             <div className="solution-icon backup">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#bfaaff" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="12" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="12" width="22" height="14" rx="6" stroke="#8b5cf6" strokeWidth="2.2" /><ellipse cx="19" cy="26" rx="11" ry="5" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">Data Backup</div>
@@ -66,13 +103,13 @@ export default function Products({ goTo }){
               <li>Immutable storage</li>
               <li>Cross‑region replication</li>
             </ul>
-            <a className="product-link" href="#">Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('/backup');}}>Learn More <span>→</span></a>
           </div>
 
           {/* Reports & Analytics */}
           <div className="product-card compact">
             <div className="solution-icon analytics">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#bfaaff" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#bfaaff" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#bfaaff" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="22" width="4" height="8" rx="2" fill="#8b5cf6" /><rect x="16" y="16" width="4" height="14" rx="2" fill="#8b5cf6" /><rect x="24" y="10" width="4" height="20" rx="2" fill="#8b5cf6" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">Reports & Analytics</div>
@@ -85,13 +122,13 @@ export default function Products({ goTo }){
               <li>Compliance analytics</li>
               <li>Real‑time insights</li>
             </ul>
-            <a className="product-link" href="#">Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('/reports');}}>Learn More <span>→</span></a>
           </div>
 
           {/* Scanning */}
           <div className="product-card compact">
             <div className="solution-icon scanning">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#bfaaff" strokeWidth="2.2" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="8" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="8" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="24" y="24" width="6" height="6" rx="2" stroke="#8b5cf6" strokeWidth="2.2" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">Scanning</div>
@@ -104,13 +141,13 @@ export default function Products({ goTo }){
               <li>Quality control</li>
               <li>Multi‑format support</li>
             </ul>
-            <a className="product-link" href="#">Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('/scanning');}}>Learn More <span>→</span></a>
           </div>
 
           {/* OCR */}
           <div className="product-card compact">
             <div className="solution-icon ocr">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#bfaaff" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#bfaaff" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#bfaaff" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="10" y="8" width="18" height="22" rx="4" stroke="#8b5cf6" strokeWidth="2.2" /><rect x="14" y="14" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="19" width="10" height="2.5" rx="1.2" fill="#8b5cf6" /><rect x="14" y="24" width="6" height="2.5" rx="1.2" fill="#8b5cf6" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">OCR</div>
@@ -123,13 +160,13 @@ export default function Products({ goTo }){
               <li>Auto‑tagging</li>
               <li>Searchable archives</li>
             </ul>
-            <a className="product-link" href="#">Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('/ocr');}}>Learn More <span>→</span></a>
           </div>
 
           {/* Calling (CTI) */}
           <div className="product-card compact">
             <div className="solution-icon cti">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#bfaaff" strokeWidth="2.2" fill="none" /></svg>
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M12 14c2.5 5 8.5 11 13 13l3-3c.5-.5 1.3-.5 1.8 0l2.2 2.2c.5.5.5 1.3 0 1.8-2.2 2.2-4.5 3.5-7.5 2.5-4.5-1.5-10.5-7.5-12-12-1-3 0-5.3 2.5-7.5.5-.5 1.3-.5 1.8 0L14 9c.5.5.5 1.3 0 1.8l-3 3z" stroke="#8b5cf6" strokeWidth="2.2" fill="none" /></svg>
             </div>
             <div className="product-head">
               <div className="product-title">Calling (CTI)</div>
@@ -142,7 +179,7 @@ export default function Products({ goTo }){
               <li>Call analytics</li>
               <li>CRM integration</li>
             </ul>
-            <a className="product-link" href="#">Learn More <span>→</span></a>
+            <a className="product-link" href="#" onClick={(e)=>{e.preventDefault(); goTo('/cti');}}>Learn More <span>→</span></a>
           </div>
         </div>
       </section>
@@ -152,95 +189,93 @@ export default function Products({ goTo }){
         <div className="products-cta-content">
           <h2 className="products-cta-title">Ready to Get Started?</h2>
           <p className="products-cta-desc">See how Kloudvault can transform your data lifecycle management.</p>
-          <button className="products-cta-button">
+          <button className="products-cta-button" onClick={() => goTo('/support')}>
             Book a Demo <span className="cta-arrow">→</span>
           </button>
         </div>
       </section>
 
-  
-          {/* Footer Section */}
-          <footer className="site-footer">
-            <div className="footer-inner">
-              <div className="footer-brand">
-                <div className="brand-logo">
-                  <img src="Kloudvault logo.png" alt="Kloudvault" />
-                </div>
-                <p className="footer-desc">
-                  Enterprise-ready data lifecycle solutions—secure, compliant, and natively cloud.
-                </p>
-                <div className="footer-badges">
-                  <span className="badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
-                      <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/>
-                      <path d="M9.5 12l2 2 4-4"/>
-                    </svg>
-                    SOC 2
-                  </span>
-                  <span className="badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
-                      <circle cx="12" cy="12" r="9"/>
-                      <path d="M8 12h8"/>
-                      <path d="M12 8v8"/>
-                    </svg>
-                    ISO 27001
-                  </span>
-                  <span className="badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
-                      <rect x="4" y="10" width="16" height="10" rx="2"/>
-                      <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-                    </svg>
-                    GDPR Ready
-                  </span>
-                </div>
-                <div className="newsletter">
-                  <p>Subscribe to our newsletter</p>
-                  <div className="newsletter-input">
-                    <input type="email" placeholder="your@email.com" />
-                    <button>Subscribe</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="footer-links">
-                <h4>Solutions</h4>
-                <a href="#archival">Archival Data</a>
-                <a href="#backup">Data Backup</a>
-                <a href="#reports">Reports & Analytics</a>
-                <a href="#scanning">Scanning</a>
-                <a href="#ocr">OCR</a>
-                <a href="#cti">Calling (CTI)</a>
-              </div>
-
-              <div className="footer-links">
-                <h4>Company</h4>
-                <a href="#blogs">About</a>
-                <a href="#company">Pricing</a>
-                <a href="#support">Contact</a>
-                <a href="#">Careers</a>
-                <a href="#">Resources</a>
-              </div>
-
-              <div className="footer-links">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Security</a>
-                <a href="#">Compliance</a>
-                <a href="#">Cookie Policy</a>
+      {/* Footer Section */}
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <div className="brand-logo">
+              <img src="Kloudvault logo.png" alt="Kloudvault" />
+            </div>
+            <p className="footer-desc">
+              Enterprise-ready data lifecycle solutions—secure, compliant, and natively cloud.
+            </p>
+            <div className="footer-badges">
+              <span className="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                  <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"/>
+                  <path d="M9.5 12l2 2 4-4"/>
+                </svg>
+                SOC 2
+              </span>
+              <span className="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M8 12h8"/>
+                  <path d="M12 8v8"/>
+                </svg>
+                ISO 27001
+              </span>
+              <span className="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" color="#d4af37">
+                  <rect x="4" y="10" width="16" height="10" rx="2"/>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                </svg>
+                GDPR Ready
+              </span>
+            </div>
+            <div className="newsletter">
+              <p>Subscribe to our newsletter</p>
+              <div className="newsletter-input">
+                <input type="email" placeholder="your@email.com" />
+                <button>Subscribe</button>
               </div>
             </div>
+          </div>
 
-            <div className="footer-bottom">
-              <div className="footer-copyright">
-                © 2025 Kloudrac. All rights reserved.
-              </div>
-              <div className="footer-backing">
-                Backed by Kloudrac's decade of cloud delivery.
-              </div>
-            </div>
-          </footer>
+          <div className="footer-links">
+            <h4>Solutions</h4>
+            <a href="/archival" onClick={(e) => { e.preventDefault(); goTo('/archival'); }}>Archival Data</a>
+            <a href="/backup" onClick={(e) => { e.preventDefault(); goTo('/backup'); }}>Data Backup</a>
+            <a href="/reports" onClick={(e) => { e.preventDefault(); goTo('/reports'); }}>Reports & Analytics</a>
+            <a href="/scanning" onClick={(e) => { e.preventDefault(); goTo('/scanning'); }}>Scanning</a>
+            <a href="/ocr" onClick={(e) => { e.preventDefault(); goTo('/ocr'); }}>OCR</a>
+            <a href="/cti" onClick={(e) => { e.preventDefault(); goTo('/cti'); }}>Calling (CTI)</a>
+          </div>
 
+          <div className="footer-links">
+            <h4>Company</h4>
+            <a href="/blogs" onClick={(e) => { e.preventDefault(); goTo('/blogs'); }}>About</a>
+            <a href="/company" onClick={(e) => { e.preventDefault(); goTo('/company'); }}>Pricing</a>
+            <a href="/support" onClick={(e) => { e.preventDefault(); goTo('/support'); }}>Contact</a>
+            <a href="#">Careers</a>
+            <a href="#">Resources</a>
+          </div>
+
+          <div className="footer-links">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Security</a>
+            <a href="#">Compliance</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="footer-copyright">
+            © 2025 Kloudrac. All rights reserved.
+          </div>
+          <div className="footer-backing">
+            Backed by Kloudrac's decade of cloud delivery.
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
