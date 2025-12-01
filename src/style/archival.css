@@ -307,8 +307,24 @@
     font-size: 18px
   }
 
+  .archival-tabs {
+    padding: 0 16px;
+  }
+
   .archival-tabs-inner {
-    width: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .archival-tab {
+    flex: 1 1 auto;
+    min-width: 100px;
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
   }
 
   .ov-grid {
@@ -321,6 +337,22 @@
 
   .archival-cards {
     grid-template-columns: 1fr
+  }
+}
+
+@media (max-width: 480px) {
+  .archival-tabs {
+    padding: 0 12px;
+  }
+
+  .archival-tabs-inner {
+    gap: 6px;
+  }
+
+  .archival-tab {
+    padding: 10px 12px;
+    font-size: 12px;
+    min-width: 90px;
   }
 }
 
